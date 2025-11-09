@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mohamed Reda Portfolio - Sales Professional & Aspiring Developer | SEO Services, Python Programming, Web Development">
+    <meta name="keywords" content="Mohamed Reda, Sales, SEO, Python, Web Development, Programming, Egypt">
+    <meta name="author" content="Mohamed Reda">
+    <title>Mohamed Reda Portfolio | Sales Professional & Aspiring Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --dark: #1a1a2e;
+            --darker: #16213e;
+            --light: #F5F5F7;
+            --accent: #FF6584;
+            --success: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-toggle {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .language-toggle:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 700px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.6);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 5%;
+            min-height: auto;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        /* Skills Section - IMPROVED */
+        #skills {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><path fill="%236C63FF" opacity="0.05" d="M0,1000 L1000,0 L1000,1000 Z"></path></svg>');
+            background-size: cover;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(108, 99, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover .skill-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .skill-name {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .skill-percentage {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .skill-bar-container {
+            position: relative;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-bar {
+            height: 100%;
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 10px;
+        }
+
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent);
+            animation: shimmer 2s infinite;
+            border-radius: 10px;
+        }
+
+        .skill-level {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .skill-experience {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.4rem 1rem;
+            background: rgba(108, 99, 255, 0.15);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+        }
+
+        /* Animation for skill bar shimmer */
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Services Section */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.7rem;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Journey Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.03);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Books Section */
+        .books-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .book-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .book-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .book-content {
+            padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .book-author {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .book-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* Certificates Section */
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-content {
+            padding: 1.2rem;
+        }
+
+        .certificate-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .certificate-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-date {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 101, 132, 0.4);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.6rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .fab.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fab:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(108, 99, 255, 0.7);
+            }
+        }
+
+        @keyframes pulse-whatsapp {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+            }
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 20px 20px;
+            }
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-left: .15em solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--primary);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: rgba(26, 26, 46, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .about-content {
+                flex-direction: column-reverse;
+            }
+
+            .profile-img {
+                max-width: 250px;
+            }
+
+            .whatsapp-button {
+                bottom: 100px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+
+            .fab {
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .books-container,
+            .certificates-container,
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* Skills Section - Mobile Improvements */
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .skill-card {
+                padding: 1.5rem;
+            }
+
+            .skill-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .skill-percentage {
+                align-self: flex-end;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 0 3%;
+            }
+
+            section {
+                padding: 2.5rem 3%;
+            }
+
+            .skills-container,
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card,
+            .service-card {
+                padding: 1.2rem;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info,
+            .contact-form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQF1tOHZBWlEMA/profile-displayphoto-scale_200_200/B4DZlsdKdXJQAY-/0/1758461210926?e=2147483647&v=beta&t=RE8QwMxcJZ6rT68T4whw5kIRxgQIPDFeF7q6F8LahIo"
+                alt="Mohamed Reda" class="logo-img">
+            <div class="logo-text">MR</div>
+        </div>
+        <div class="nav-links">
+            <a href="#home" data-key="home">Home</a>
+            <a href="#about" data-key="about">About</a>
+            <a href="#skills" data-key="skills">Skills</a>
+            <a href="#services" data-key="services">Services</a>
+            <a href="#journey" data-key="journey">Journey</a>
+            <a href="#books" data-key="books">Books</a>
+            <a href="#certificates" data-key="certificates">Certificates</a>
+            <a href="#contact" data-key="contact">Contact</a>
+            <button class="language-toggle" id="languageToggle">
+                <span id="languageText">العربية</span>
+                <i class="fas fa-globe"></i>
+            </button>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Mohamed Reda</h1>
+        <h2 class="typewriter" data-key="heroTitle">Sales Professional & Aspiring Developer</h2>
+        <p data-key="heroDescription">Passionate about technology, communication, and continuous learning. I'm currently
+            honing my persuasion and communication skills in sales while continuing my journey in programming and search
+            engine optimization.</p>
+        <a href="#contact" class="cta-button" data-key="contactMe">Contact Me</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title" data-key="aboutTitle">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p data-key="aboutText1">Hello! I'm Mohamed Reda Moussa, a twenty-year-old from El Dakeeka, Belqas,
+                    Egypt. I currently work as a sales representative at Tie House to improve my communication and
+                    persuasion skills.</p>
+                <p data-key="aboutText2">I've explored many technology fields including front-end development, back-end
+                    development, and ethical hacking. Currently, I'm focusing on learning SEO to expand my digital
+                    skills.</p>
+                <p data-key="aboutText3">My goal is to become the best version of myself and establish my own business
+                    in the programming field within the next three years.</p>
+            </div>
+            <div class="about-image">
+                <img src="images/mohamed.jpg" alt="Mohamed Reda" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - IMPROVED -->
+    <section id="skills">
+        <h2 class="section-title" data-key="skillsTitle">My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-title">
+                        <div class="skill-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="skill-name" data-key="skill1Title">Communication & Sales</h3>
+                    </div>
+                    <div class="skill-percentage">80%</div>
+                </div>
+                <p class="skill-description" data-key="skill1Desc">Developing strong persuasion and communication
+                    abilities through my current sales role at Tie House.</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="80"></div>
+                </div>
+                <div class="skill-level">
+                    <span>Beginner</span>
+                    <span>Expert</span>
+                </div>
+                <span class="skill-experience">2+ years experience</span>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-title">
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="skill-name" data-key="skill2Title">Computer Skills</h3>
+                    </div>
+                    <div class="skill-percentage">75%</div>
+                </div>
+                <p class="skill-description" data-key="skill2Desc">Proficient in Microsoft Office Suite (Word, Excel,
+                    PowerPoint) and Adobe Photoshop.</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="75"></div>
+                </div>
+                <div class="skill-level">
+                    <span>Beginner</span>
+                    <span>Expert</span>
+                </div>
+                <span class="skill-experience">3+ years experience</span>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-title">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-name" data-key="skill3Title">Programming Basics</h3>
+                    </div>
+                    <div class="skill-percentage">60%</div>
+                </div>
+                <p class="skill-description" data-key="skill3Desc">Knowledge of Python for data analysis and exploring
+                    front-end and back-end development concepts.</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="60"></div>
+                </div>
+                <div class="skill-level">
+                    <span>Beginner</span>
+                    <span>Expert</span>
+                </div>
+                <span class="skill-experience">1+ year experience</span>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-title">
+                        <div class="skill-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="skill-name" data-key="skill4Title">SEO & Digital Marketing</h3>
+                    </div>
+                    <div class="skill-percentage">50%</div>
+                </div>
+                <p class="skill-description" data-key="skill4Desc">Currently learning search engine optimization and
+                    digital marketing strategies.</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="50"></div>
+                </div>
+                <div class="skill-level">
+                    <span>Beginner</span>
+                    <span>Expert</span>
+                </div>
+                <span class="skill-experience">Learning in progress</span>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-title">
+                        <div class="skill-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="skill-name" data-key="skill5Title">Soft Skills</h3>
+                    </div>
+                    <div class="skill-percentage">85%</div>
+                </div>
+                <p class="skill-description" data-key="skill5Desc">Strong commitment, teamwork capabilities, and
+                    effective communication in both Arabic and English.</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="85"></div>
+                </div>
+                <div class="skill-level">
+                    <span>Beginner</span>
+                    <span>Expert</span>
+                </div>
+                <span class="skill-experience">Lifelong development</span>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-title">
+                        <div class="skill-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="skill-name" data-key="skill6Title">Fast Learning</h3>
+                    </div>
+                    <div class="skill-percentage">90%</div>
+                </div>
+                <p class="skill-description" data-key="skill6Desc">Quick to adapt and learn new technologies and
+                    methodologies in the constantly evolving tech landscape.</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="90"></div>
+                </div>
+                <div class="skill-level">
+                    <span>Beginner</span>
+                    <span>Expert</span>
+                </div>
+                <span class="skill-experience">Natural ability</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- باقي الأقسام تبقى كما هي -->
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title" data-key="servicesTitle">My Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 data-key="service1Title">SEO Services</h3>
+                <p data-key="service1Desc">I provide comprehensive SEO services to improve your website's search engine
+                    visibility, increase organic traffic, and enhance your online presence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 data-key="service2Title">Python Automation</h3>
+                <p data-key="service2Desc">I develop custom Python programs to automate customer service tasks,
+                    including extracting customer data from Excel sheets and sending personalized messages.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-file-excel"></i>
+                </div>
+                <h3 data-key="service3Title">Excel Data Solutions</h3>
+                <p data-key="service3Desc">I create specialized programs to streamline Excel data handling, making it
+                    easier for business owners to efficiently manage and analyze their information.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 data-key="service4Title">Web Development</h3>
+                <p data-key="service4Desc">I build responsive and modern websites using various programming languages as
+                    well as WordPress, specifically designed to meet your business needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey">
+        <h2 class="section-title" data-key="journeyTitle">My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-key="journey1Title">Education</h3>
+                    <p data-key="journey1Desc">I hold a diploma in Agriculture (Intermediate Education) from Belqas
+                        Agricultural Secondary School.</p>
+                    <p data-key="journey1Grade">Overall Grade: Excellent</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-key="journey2Title">Courses & Certificates</h3>
+                    <p data-key="journey2Desc">I completed various courses including Digital Fabrication, Digital
+                        Marketing, Computer Applications, Human Resources, IC3 Certificate, General English, Business
+                        Administration, SEO, Freelance Skills, Python Basics, and Content Creation.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-key="journey3Title">Programming Exploration</h3>
+                    <p data-key="journey3Desc">I started my technology journey by exploring front-end development, then
+                        back-end development, and ethical hacking. I'm currently focusing on SEO and digital skills.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-key="journey4Title">Sales Experience</h3>
+                    <p data-key="journey4Desc">I currently work as a sales representative at Tie House to improve
+                        communication and persuasion skills while continuing my professional goals in technology.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-key="journey5Title">Future Goals</h3>
+                    <p data-key="journey5Desc">Planning to establish my own business in the programming field and build
+                        a successful career in freelancing within the next three years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books">
+        <h2 class="section-title" data-key="booksTitle">Books I've Read</h2>
+        <div class="books-container">
+            <div class="book-card">
+                <img src="images/Al Dahih.jpg" alt="الدحيح" class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book1Title">الدحيح</h3>
+                    <div class="book-author" data-key="book1Author">طاهر المعتزبالله</div>
+                    <p class="book-description" data-key="book1Desc">كتاب يتناول مواضيع علمية وثقافية بطريقة مبسطة
+                        وممتعة.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/What a Muslim cannot afford to be ignorant of.jpg" alt="مالا يسع المسلم جهلة"
+                    class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book2Title">مالا يسع المسلم جهلة</h3>
+                    <div class="book-author" data-key="book2Author">د.عبدالله الصالح, د.صلاح الصاوي</div>
+                    <p class="book-description" data-key="book2Desc">كتاب يشرح الأساسيات التي يجب على كل مسلم معرفتها في
+                        دينه.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/The Mistakes.jpg" alt="the mistakes" class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book3Title">The Mistakes</h3>
+                    <div class="book-author" data-key="book3Author">صلاح ابوالمجد</div>
+                    <p class="book-description" data-key="book3Desc">كتاب يتناول الأخطاء الشائعة وكيفية تجنبها في الحياة
+                        والعمل.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/HOW TO SELL ANYTHING TO ANYBODY.jpg" alt="how to sell anything to anybody"
+                    class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book4Title">How to Sell Anything to Anybody</h3>
+                    <div class="book-author" data-key="book4Author">Joe Girard</div>
+                    <p class="book-description" data-key="book4Desc">كتاب في فنون البيع والتسويق من أشهر بائع سيارات في
+                        العالم.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/THE SUBTLE ART OF NOT GIVING A FCK.jpg" alt="the subtle art of not giving a f*ck"
+                    class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book5Title">The Subtle Art of Not Giving a F*ck</h3>
+                    <div class="book-author" data-key="book5Author">Mark Manson</div>
+                    <p class="book-description" data-key="book5Desc">كتاب في التنمية الذاتية يتناول أهمية تحديد
+                        الأولويات في الحياة.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/The Power of your subconscious Mind.jpg" alt="the power of your subconscious mind"
+                    class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book6Title">The Power of Your Subconscious Mind</h3>
+                    <div class="book-author" data-key="book6Author">Joseph Murphy</div>
+                    <p class="book-description" data-key="book6Desc">كتاب كلاسيكي في قوة العقل الباطن وتأثيره على
+                        حياتنا.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/Atomic Habits.jpg" alt="atomic habits" class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book7Title">Atomic Habits</h3>
+                    <div class="book-author" data-key="book7Author">James Clear</div>
+                    <p class="book-description" data-key="book7Desc">كتاب رائد في بناء العادات الصغيرة التي تؤدي إلى
+                        تغييرات كبيرة.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/Learn Python.jpg" alt="تعلم بايثون" class="book-img">
+                <div class="book-content">
+                    <h3 data-key="book8Title">تعلم بايثون</h3>
+                    <div class="book-author" data-key="book8Author">إبراهيم عادل</div>
+                    <p class="book-description" data-key="book8Desc">كتاب تعليمي للمبتدئين في لغة البرمجة بايثون.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <h2 class="section-title" data-key="certificatesTitle">My Certificates</h2>
+        <div class="certificates-container">
+            <div class="certificate-card">
+                <img src="images/Time Management.jpg" alt="Time Management Certificate" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert1Title">Time Management & Productivity</h3>
+                    <p data-key="cert1Desc">Successfully participated in the Time Management and Productivity course</p>
+                    <span class="certificate-date" data-key="cert1Date">Issue Date: 2025-09-09</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/Digital Fabrication Workshop.jpg" alt="Digital Fabrication Workshop"
+                    class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert2Title">Digital Fabrication Workshop</h3>
+                    <p data-key="cert2Desc">Successfully completed a one-day workshop in Digital Fabrication</p>
+                    <span class="certificate-date" data-key="cert2Org">Creative Mansoura FabLab</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/Design Your Dream Career.jpg" alt="Design Your Dream Career" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert3Title">Design Your Dream Career Training</h3>
+                    <p data-key="cert3Desc">Successfully completed a three-day training in designing your dream career
+                        path</p>
+                    <span class="certificate-date" data-key="cert3Org">Creativa</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/Business Administration.jpg" alt="Business Administration" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert4Title">Business Administration</h3>
+                    <p data-key="cert4Desc">Successfully completed the Business Administration course with Excellent
+                        grade</p>
+                    <span class="certificate-date" data-key="cert4Date">Issue Date: February 2024</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/Digital Marketing.jpg" alt="Digital Marketing" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert5Title">Digital Marketing Fundamentals</h3>
+                    <p data-key="cert5Desc">Successfully completed a one-day workshop in Digital Marketing Fundamentals
+                    </p>
+                    <span class="certificate-date" data-key="cert5Org">Creativa</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/Freelance Bootcamp.jpg" alt="Freelance Bootcamp" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert6Title">Freelance Bootcamp</h3>
+                    <p data-key="cert6Desc">Successfully completed a three-day workshop in freelance development</p>
+                    <span class="certificate-date" data-key="cert6Org">Creativa</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/Computer Applications.jpg" alt="Computer Applications" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert7Title">Advanced Computer Applications</h3>
+                    <p data-key="cert7Desc">Successfully completed the Advanced Computer Applications and IT training
+                        package</p>
+                    <span class="certificate-date" data-key="cert7Date">Issue Date: January 2024</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/IC3 Certification.jpg" alt="IC3 Certification" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert8Title">Internet Core Competency Certification (IC3)</h3>
+                    <p data-key="cert8Desc">Successfully completed the IC3 certification with Excellent grade</p>
+                    <span class="certificate-date" data-key="cert8Date">Issue Date: February 2024</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="images/General English.jpg" alt="General English" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert9Title">General English</h3>
+                    <p data-key="cert9Desc">Successfully completed the General English course with Excellent grade</p>
+                    <span class="certificate-date" data-key="cert9Date">Issue Date: March 2024</span>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <img src="images/Human Resources.jpg" alt="Human Resources" class="certificate-img">
+                <div class="certificate-content">
+                    <h3 data-key="cert10Title">Human Resources</h3>
+                    <p data-key="cert10Desc">Successfully completed the Human Resources course with Excellent grade</p>
+                    <span class="certificate-date" data-key="cert10Date">Issue Date: March 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title" data-key="contactTitle">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h3 data-key="phoneTitle">Phone</h3>
+                        <p>+20 101 293 2133</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h3 data-key="emailTitle">Email</h3>
+                        <p>mohamed.reda.mousse@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3 data-key="locationTitle">Location</h3>
+                        <p data-key="locationText">El Dakeeka, Belqas, Egypt</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div>
+                        <h3 data-key="linkedinTitle">LinkedIn</h3>
+                        <p>linkedin.com/in/mohamed-reda-moussa-472949357</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-key="formName">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-key="formEmail">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-key="formSubject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-key="formMessage">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" data-key="formSubmit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Mohamed Reda</div>
+            <p class="footer-text" data-key="footerText">Sales professional and aspiring developer passionate about
+                technology, communication, and continuous learning. Let's work together to turn your ideas into reality!
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-reda-moussa-472949357" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.facebook.com/mooogalaxy" class="social-link" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/mohamed_moussa_2006" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:mohamed.reda.mousse@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+201012932133" class="social-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Mohamed Reda. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/201012932133" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp" style="color: #F5F5F7;"></i>
+    </a>
+
+    <!-- Floating Action Button -->
+    <div class="fab" id="fab">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Language texts
+        const texts = {
+            en: {
+                // Navigation
+                home: "Home",
+                about: "About",
+                skills: "Skills",
+                services: "Services",
+                journey: "Journey",
+                books: "Books",
+                certificates: "Certificates",
+                contact: "Contact",
+
+                // Hero Section
+                heroTitle: "Sales Professional & Aspiring Developer",
+                heroDescription: "Passionate about technology, communication, and continuous learning. I'm currently honing my persuasion and communication skills in sales while continuing my journey in programming and search engine optimization.",
+                contactMe: "Contact Me",
+
+                // About Section
+                aboutTitle: "About Me",
+                aboutText1: "Hello! I'm Mohamed Reda Moussa, a twenty-year-old from El Dakeeka, Belqas, Egypt. I currently work as a sales representative at Tie House to improve my communication and persuasion skills.",
+                aboutText2: "I've explored many technology fields including front-end development, back-end development, and ethical hacking. Currently, I'm focusing on learning SEO to expand my digital skills.",
+                aboutText3: "My goal is to become the best version of myself and establish my own business in the programming field within the next three years.",
+
+                // Skills Section
+                skillsTitle: "My Skills",
+                skill1Title: "Communication & Sales",
+                skill1Desc: "Developing strong persuasion and communication abilities through my current sales role at Tie House.",
+                skill2Title: "Computer Skills",
+                skill2Desc: "Proficient in Microsoft Office Suite (Word, Excel, PowerPoint) and Adobe Photoshop.",
+                skill3Title: "Programming Basics",
+                skill3Desc: "Knowledge of Python for data analysis and exploring front-end and back-end development concepts.",
+                skill4Title: "SEO & Digital Marketing",
+                skill4Desc: "Currently learning search engine optimization and digital marketing strategies.",
+                skill5Title: "Soft Skills",
+                skill5Desc: "Strong commitment, teamwork capabilities, and effective communication in both Arabic and English.",
+                skill6Title: "Fast Learning",
+                skill6Desc: "Quick to adapt and learn new technologies and methodologies in the constantly evolving tech landscape.",
+
+                // Services Section
+                servicesTitle: "My Services",
+                service1Title: "SEO Services",
+                service1Desc: "I provide comprehensive SEO services to improve your website's search engine visibility, increase organic traffic, and enhance your online presence.",
+                service2Title: "Python Automation",
+                service2Desc: "I develop custom Python programs to automate customer service tasks, including extracting customer data from Excel sheets and sending personalized messages.",
+                service3Title: "Excel Data Solutions",
+                service3Desc: "I create specialized programs to streamline Excel data handling, making it easier for business owners to efficiently manage and analyze their information.",
+                service4Title: "Web Development",
+                service4Desc: "I build responsive and modern websites using various programming languages as well as WordPress, specifically designed to meet your business needs.",
+
+                // Journey Section
+                journeyTitle: "My Journey",
+                journey1Title: "Education",
+                journey1Desc: "I hold a diploma in Agriculture (Intermediate Education) from Belqas Agricultural Secondary School.",
+                journey1Grade: "Overall Grade: Excellent",
+                journey2Title: "Courses & Certificates",
+                journey2Desc: "I completed various courses including Digital Fabrication, Digital Marketing, Computer Applications, Human Resources, IC3 Certificate, General English, Business Administration, SEO, Freelance Skills, Python Basics, and Content Creation.",
+                journey3Title: "Programming Exploration",
+                journey3Desc: "I started my technology journey by exploring front-end development, then back-end development, and ethical hacking. I'm currently focusing on SEO and digital skills.",
+                journey4Title: "Sales Experience",
+                journey4Desc: "I currently work as a sales representative at Tie House to improve communication and persuasion skills while continuing my professional goals in technology.",
+                journey5Title: "Future Goals",
+                journey5Desc: "Planning to establish my own business in the programming field and build a successful career in freelancing within the next three years.",
+
+                // Books Section
+                booksTitle: "Books I've Read",
+                book1Title: "الدحيح",
+                book1Author: "طاهر المعتزبالله",
+                book1Desc: "كتاب يتناول مواضيع علمية وثقافية بطريقة مبسطة وممتعة.",
+                book2Title: "مالا يسع المسلم جهلة",
+                book2Author: "د.عبدالله الصالح, د.صلاح الصاوي",
+                book2Desc: "كتاب يشرح الأساسيات التي يجب على كل مسلم معرفتها في دينه.",
+                book3Title: "The Mistakes",
+                book3Author: "صلاح ابوالمجد",
+                book3Desc: "كتاب يتناول الأخطاء الشائعة وكيفية تجنبها في الحياة والعمل.",
+                book4Title: "How to Sell Anything to Anybody",
+                book4Author: "Joe Girard",
+                book4Desc: "كتاب في فنون البيع والتسويق من أشهر بائع سيارات في العالم.",
+                book5Title: "The Subtle Art of Not Giving a F*ck",
+                book5Author: "Mark Manson",
+                book5Desc: "كتاب في التنمية الذاتية يتناول أهمية تحديد الأولويات في الحياة.",
+                book6Title: "The Power of Your Subconscious Mind",
+                book6Author: "Joseph Murphy",
+                book6Desc: "كتاب كلاسيكي في قوة العقل الباطن وتأثيره على حياتنا.",
+                book7Title: "Atomic Habits",
+                book7Author: "James Clear",
+                book7Desc: "كتاب رائد في بناء العادات الصغيرة التي تؤدي إلى تغييرات كبيرة.",
+                book8Title: "تعلم بايثون",
+                book8Author: "إبراهيم عادل",
+                book8Desc: "كتاب تعليمي للمبتدئين في لغة البرمجة بايثون.",
+
+                // Certificates Section
+                certificatesTitle: "My Certificates",
+                cert1Title: "Time Management & Productivity",
+                cert1Desc: "Successfully participated in the Time Management and Productivity course",
+                cert1Date: "Issue Date: 2025-09-09",
+                cert2Title: "Digital Fabrication Workshop",
+                cert2Desc: "Successfully completed a one-day workshop in Digital Fabrication",
+                cert2Org: "Creative Mansoura FabLab",
+                cert3Title: "Design Your Dream Career Training",
+                cert3Desc: "Successfully completed a three-day training in designing your dream career path",
+                cert3Org: "Creativa",
+                cert4Title: "Business Administration",
+                cert4Desc: "Successfully completed the Business Administration course with Excellent grade",
+                cert4Date: "Issue Date: February 2024",
+                cert5Title: "Digital Marketing Fundamentals",
+                cert5Desc: "Successfully completed a one-day workshop in Digital Marketing Fundamentals",
+                cert5Org: "Creativa",
+                cert6Title: "Freelance Bootcamp",
+                cert6Desc: "Successfully completed a three-day workshop in freelance development",
+                cert6Org: "Creativa",
+                cert7Title: "Advanced Computer Applications",
+                cert7Desc: "Successfully completed the Advanced Computer Applications and IT training package",
+                cert7Date: "Issue Date: January 2024",
+                cert8Title: "Internet Core Competency Certification (IC3)",
+                cert8Desc: "Successfully completed the IC3 certification with Excellent grade",
+                cert8Date: "Issue Date: February 2024",
+                cert9Title: "General English",
+                cert9Desc: "Successfully completed the General English course with Excellent grade",
+                cert9Date: "Issue Date: March 2024",
+                cert10Title: "Human Resources",
+                cert10Desc: "Successfully completed the Human Resources course with Excellent grade",
+                cert10Date: "Issue Date: March 2024",
+
+                // Contact Section
+                contactTitle: "Contact Me",
+                phoneTitle: "Phone",
+                emailTitle: "Email",
+                locationTitle: "Location",
+                locationText: "El Dakeeka, Belqas, Egypt",
+                linkedinTitle: "LinkedIn",
+                formName: "Name",
+                formEmail: "Email",
+                formSubject: "Subject",
+                formMessage: "Message",
+                formSubmit: "Send Message",
+
+                // Footer
+                footerText: "Sales professional and aspiring developer passionate about technology, communication, and continuous learning. Let's work together to turn your ideas into reality!"
+            },
+            ar: {
+                // Navigation
+                home: "الرئيسية",
+                about: "عني",
+                skills: "المهارات",
+                services: "الخدمات",
+                journey: "رحلتي",
+                books: "الكتب",
+                certificates: "الشهادات",
+                contact: "اتصل بي",
+
+                // Hero Section
+                heroTitle: "محترف مبيعات ومطور طموح",
+                heroDescription: "شغوف بالتكنولوجيا والتواصل والتعلم المستمر. أحسن حاليًا مهارات الإقناع والتواصل في المبيعات بينما أواصل رحلتي في البرمجة وتحسين محركات البحث.",
+                contactMe: "تواصل معي",
+
+                // About Section
+                aboutTitle: "عني",
+                aboutText1: "مرحبًا! أنا محمد رضا موسى، شاب في العشرين من عمري من الدقيقة، بلقاس، مصر. أعمل حاليًا كمندوب مبيعات في Tie House لتحسين مهاراتي في التواصل والإقناع.",
+                aboutText2: "لقد استكشفت العديد من مجالات التكنولوجيا بما في ذلك تطوير الواجهات الأمامية، تطوير الواجهات الخلفية، والقرصنة الأخلاقية. حاليًا، أركز على تعلم SEO لتوسيع مهاراتي الرقمية.",
+                aboutText3: "هدفي هو أن أصبح أفضل نسخة من نفسي وأنشئ عملي الخاص في مجال البرمجة خلال السنوات الثلاث القادمة.",
+
+                // Skills Section
+                skillsTitle: "مهاراتي",
+                skill1Title: "التواصل والمبيعات",
+                skill1Desc: "تطوير قدرات قوية في الإقناع والتواصل من خلال دوري الحالي في المبيعات في Tie House.",
+                skill2Title: "مهارات الكمبيوتر",
+                skill2Desc: "متمكن في Microsoft Office Suite (Word, Excel, PowerPoint) و Adobe Photoshop.",
+                skill3Title: "أساسيات البرمجة",
+                skill3Desc: "معرفة بلغة Python لتحليل البيانات واستكشاف مفاهيم تطوير الواجهات الأمامية والخلفية.",
+                skill4Title: "SEO والتسويق الرقمي",
+                skill4Desc: "أتعلم حاليًا تحسين محركات البحث واستراتيجيات التسويق الرقمي.",
+                skill5Title: "المهارات الشخصية",
+                skill5Desc: "التزام قوي، قدرات العمل الجماعي، والتواصل الفعال باللغتين العربية والإنجليزية.",
+                skill6Title: "سرعة التعلم",
+                skill6Desc: "سريع في التكيف وتعلم التقنيات والمنهجيات الجديدة في المشهد التكنولوجي المتطور باستمرار.",
+
+                // Services Section
+                servicesTitle: "خدماتي",
+                service1Title: "خدمات SEO",
+                service1Desc: "أقدم خدمات SEO شاملة لتحسين ظهور موقعك على محركات البحث، وزيادة الزيارات العضوية، وتعزيز وجودك على الإنترنت.",
+                service2Title: "أتمتة بايثون",
+                service2Desc: "أطور برامج بايثون مخصصة لأتمتة مهام خدمة العملاء، بما في ذلك استخراج بيانات العملاء من جداول Excel وإرسال رسائل مخصصة.",
+                service3Title: "حلول بيانات Excel",
+                service3Desc: "أقوم بإنشاء برامج متخصصة لتبسيط التعامل مع البيانات في Excel، مما يسهل على أصحاب الأعمال إدارة وتحليل معلوماتهم بكفاءة.",
+                service4Title: "تطوير المواقع",
+                service4Desc: "أبني مواقع ويب متجاوبة وعصرية باستخدام لغات برمجة مختلفة بالإضافة إلى WordPress، مصممة خصيصًا لتلبية احتياجات عملك.",
+
+                // Journey Section
+                journeyTitle: "رحلتي",
+                journey1Title: "التعليم",
+                journey1Desc: "أحمل دبلوم في الزراعة (التعليم المتوسط) من المدرسة الثانوية الزراعية ببلقاس.",
+                journey1Grade: "التقدير العام: ممتاز",
+                journey2Title: "الدورات والشهادات",
+                journey2Desc: "أكملت دورات مختلفة بما في ذلك التصنيع الرقمي، التسويق الرقمي، تطبيقات الكمبيوتر، الموارد البشرية، شهادة IC3، اللغة الإنجليزية العامة، إدارة الأعمال، SEO، مهارات العمل الحر، أساسيات بايثون، وإنشاء المحتوى.",
+                journey3Title: "استكشاف البرمجة",
+                journey3Desc: "بدأت رحلتي في التكنولوجيا باستكشاف تطوير الواجهات الأمامية، ثم تطوير الواجهات الخلفية، والقرصنة الأخلاقية. أركز حاليًا على SEO والمهارات الرقمية.",
+                journey4Title: "خبرة المبيعات",
+                journey4Desc: "أعمل حاليًا كمندوب مبيعات في Tie House لتحسين مهارات التواصل والإقناع بينما أواصل أهدافي المهنية في التكنولوجيا.",
+                journey5Title: "الأهداف المستقبلية",
+                journey5Desc: "التخطيط لإنشاء عملي الخاص في مجال البرمجة وبناء مسيرة مهنية ناجحة في العمل الحر خلال السنوات الثلاث القادمة.",
+
+                // Books Section
+                booksTitle: "الكتب التي قرأتها",
+                book1Title: "الدحيح",
+                book1Author: "طاهر المعتزبالله",
+                book1Desc: "كتاب يتناول مواضيع علمية وثقافية بطريقة مبسطة وممتعة.",
+                book2Title: "مالا يسع المسلم جهلة",
+                book2Author: "د.عبدالله الصالح, د.صلاح الصاوي",
+                book2Desc: "كتاب يشرح الأساسيات التي يجب على كل مسلم معرفتها في دينه.",
+                book3Title: "The Mistakes",
+                book3Author: "صلاح ابوالمجد",
+                book3Desc: "كتاب يتناول الأخطاء الشائعة وكيفية تجنبها في الحياة والعمل.",
+                book4Title: "How to Sell Anything to Anybody",
+                book4Author: "Joe Girard",
+                book4Desc: "كتاب في فنون البيع والتسويق من أشهر بائع سيارات في العالم.",
+                book5Title: "The Subtle Art of Not Giving a F*ck",
+                book5Author: "Mark Manson",
+                book5Desc: "كتاب في التنمية الذاتية يتناول أهمية تحديد الأولويات في الحياة.",
+                book6Title: "The Power of Your Subconscious Mind",
+                book6Author: "Joseph Murphy",
+                book6Desc: "كتاب كلاسيكي في قوة العقل الباطن وتأثيره على حياتنا.",
+                book7Title: "Atomic Habits",
+                book7Author: "James Clear",
+                book7Desc: "كتاب رائد في بناء العادات الصغيرة التي تؤدي إلى تغييرات كبيرة.",
+                book8Title: "تعلم بايثون",
+                book8Author: "إبراهيم عادل",
+                book8Desc: "كتاب تعليمي للمبتدئين في لغة البرمجة بايثون.",
+
+                // Certificates Section
+                certificatesTitle: "شهاداتي",
+                cert1Title: "إدارة الوقت وزيادة الإنتاجية",
+                cert1Desc: "شاركت بنجاح في دورة إدارة الوقت وزيادة الإنتاجية",
+                cert1Date: "تاريخ الإصدار: 2025-09-09",
+                cert2Title: "ورشة التصنيع الرقمي",
+                cert2Desc: "أكملت بنجاح ورشة عمل ليوم واحد في التصنيع الرقمي",
+                cert2Org: "Creative Mansoura FabLab",
+                cert3Title: "تدريب تصميم مسارك المهني الحلم",
+                cert3Desc: "أكملت بنجاح تدريب لمدة ثلاثة أيام في تصميم مسارك المهني الحلم",
+                cert3Org: "Creativa",
+                cert4Title: "إدارة الأعمال",
+                cert4Desc: "أكملت بنجاح دورة إدارة الأعمال بتقدير ممتاز",
+                cert4Date: "تاريخ الإصدار: فبراير 2024",
+                cert5Title: "أساسيات التسويق الرقمي",
+                cert5Desc: "أكملت بنجاح ورشة عمل ليوم واحد في أساسيات التسويق الرقمي",
+                cert5Org: "Creativa",
+                cert6Title: "معسكر العمل الحر",
+                cert6Desc: "أكملت بنجاح ورشة عمل لمدة ثلاثة أيام في تطوير العمل الحر",
+                cert6Org: "Creativa",
+                cert7Title: "تطبيقات الكمبيوتر المتقدمة",
+                cert7Desc: "أكملت بنجاح حزمة التدريب المتقدم في تطبيقات الكمبيوتر وتكنولوجيا المعلومات",
+                cert7Date: "تاريخ الإصدار: يناير 2024",
+                cert8Title: "شهادة الكفاءة الأساسية في الإنترنت (IC3)",
+                cert8Desc: "أكملت بنجاح شهادة IC3 بتقدير ممتاز",
+                cert8Date: "تاريخ الإصدار: فبراير 2024",
+                cert9Title: "اللغة الإنجليزية العامة",
+                cert9Desc: "أكملت بنجاح دورة اللغة الإنجليزية العامة بتقدير ممتاز",
+                cert9Date: "تاريخ الإصدار: مارس 2024",
+                cert10Title: "الموارد البشرية",
+                cert10Desc: "أكملت بنجاح دورة الموارد البشرية بتقدير ممتاز",
+                cert10Date: "تاريخ الإصدار: مارس 2024",
+
+                // Contact Section
+                contactTitle: "تواصل معي",
+                phoneTitle: "الهاتف",
+                emailTitle: "البريد الإلكتروني",
+                locationTitle: "الموقع",
+                locationText: "الدقيقة، بلقاس، مصر",
+                linkedinTitle: "لينكد إن",
+                formName: "الاسم",
+                formEmail: "البريد الإلكتروني",
+                formSubject: "الموضوع",
+                formMessage: "الرسالة",
+                formSubmit: "إرسال الرسالة",
+
+                // Footer
+                footerText: "محترف مبيعات ومطور طموح شغوف بالتكنولوجيا والتواصل والتعلم المستمر. دعنا نعمل معًا لتحويل أفكارك إلى واقع!"
+            }
+        };
+
+        // Current language
+        let currentLang = 'en';
+
+        // Function to change language
+        function changeLanguage(lang) {
+            currentLang = lang;
+
+            // Update HTML direction and lang attribute
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            // Update all elements with data-key attribute
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (texts[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = texts[lang][key];
+                    } else {
+                        element.textContent = texts[lang][key];
+                    }
+                }
+            });
+
+            // Update language toggle button text
+            document.getElementById('languageText').textContent = lang === 'en' ? 'العربية' : 'English';
+        }
+
+        // Particles.js initialization
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: "#6C63FF" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#6C63FF",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Language toggle
+        document.getElementById('languageToggle').addEventListener('click', () => {
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            changeLanguage(newLang);
+        });
+
+        // Scroll to top button
+        const fab = document.getElementById("fab");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                fab.classList.add("show");
+            } else {
+                fab.classList.remove("show");
+            }
+        });
+        fab.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Animate skill bars when in view - IMPROVED
+        document.addEventListener('DOMContentLoaded', function () {
+            const skillBars = document.querySelectorAll(".skill-bar");
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const skillObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.getAttribute("data-width");
+                        // تأخير بسيط لتحسين التجربة البصرية
+                        setTimeout(() => {
+                            entry.target.style.width = width + "%";
+                        }, 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            skillBars.forEach(bar => skillObserver.observe(bar));
+
+            // إضافة تأثيرات إضافية عند التمرير
+            const skillCards = document.querySelectorAll('.skill-card');
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            skillCards.forEach((card, index) => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                card.style.transitionDelay = (index * 0.1) + "s";
+                cardObserver.observe(card);
+            });
+        });
+
+        // Contact form (basic feedback)
+        document.getElementById("contactForm").addEventListener("submit", e => {
+            e.preventDefault();
+            alert(currentLang === 'en' ? "Thank you for your message, Mohamed will contact you soon!" : "شكرًا على رسالتك، سيتواصل معك محمد قريبًا!");
+            e.target.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize with English language
+        changeLanguage('en');
+    </script>
+
+</body>
+
+</html>

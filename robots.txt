@@ -6,7 +6,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location - مهم جداً لـ Vercel
-Sitemap: https://mohamed-moussa.vercel.app/sitemap.xml
+Sitemap: https://mohamed-moussa-chi.vercel.app/sitemap.xml
 
 # Vercel-specific paths - منع فهرسة ملفات Vercel الداخلية
 Disallow: /api/
@@ -28,7 +28,7 @@ Allow: /pages/
 Crawl-delay: 1
 
 # Specify the host (مهم لـ Vercel)
-Host: https://mohamed-moussa.vercel.app
+Host: https://mohamed-moussa-chi.vercel.app/
 
 # Block bad bots
 User-agent: MJ12bot

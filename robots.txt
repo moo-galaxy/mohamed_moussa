@@ -1,0 +1,44 @@
+# robots.txt for Mohamed Reda Portfolio (Vercel)
+# Created: 2024
+
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location - مهم جداً لـ Vercel
+Sitemap: https://mohamed-moussa.vercel.app/sitemap.xml
+
+# Vercel-specific paths - منع فهرسة ملفات Vercel الداخلية
+Disallow: /api/
+Disallow: /_next/
+Disallow: /__nextjs/
+Disallow: /static/
+
+# Disallow admin and private directories
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important directories
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /pages/
+
+# Crawl delay for slower bots
+Crawl-delay: 1
+
+# Specify the host (مهم لـ Vercel)
+Host: https://mohamed-moussa.vercel.app
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

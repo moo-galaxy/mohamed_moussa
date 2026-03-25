@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Certificates - Mohamed Reda Portfolio">
+    <meta name="author" content="Mohamed Reda Moussa">
+    <title>My Certificates | Mohamed Reda Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-content {
+            padding: 1.2rem;
+        }
+
+        .certificate-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .certificate-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-date {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <nav>
+        <div class="logo">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQF1tOHZBWlEMA/profile-displayphoto-scale_200_200/B4DZlsdKdXJQAY-/0/1758461210926?e=2147483647&v=beta&t=RE8QwMxcJZ6rT68T4whw5kIRxgQIPDFeF7q6F8LahIo"
+                alt="Mohamed Reda" class="logo-img" loading="lazy">
+            <div class="logo-text">MR</div>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html#home" data-key="home">Home</a>
+            <a href="../index.html#about" data-key="about">About</a>
+            <a href="../index.html#skills" data-key="skills">Skills</a>
+            <a href="../index.html#services" data-key="services">Services</a>
+            <a href="../index.html#journey" data-key="journey">Journey</a>
+            <a href="books.html" data-key="books">Books</a>
+            <a href="certificates.html" data-key="certificates">Certificates</a>
+            <a href="projects.html" data-key="projects">Projects</a>
+            <a href="../index.html#contact" data-key="contact">Contact</a>
+            <button class="language-toggle" id="languageToggle">
+                <span id="languageText">العربية</span>
+                <i class="fas fa-globe"></i>
+            </button>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section id="certificates" style="padding-top: 100px;">
+        <div class="page-navigation">
+            <a href="../index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> <span data-key="backHome">Back to Home</span>
+            </a>
+        </div>
+        <h2 class="section-title" data-key="certificatesTitle">My Certificates</h2>
+        <div class="certificates-container">
+            <div class="certificate-card">
+                <img src="../images/Time Management.jpg" alt="Time Management Certificate" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert1Title">Time Management & Productivity</h3>
+                    <p data-key="cert1Desc">Successfully participated in the Time Management and Productivity course</p>
+                    <span class="certificate-date" data-key="cert1Date">Issue Date: 2025-09-09</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/Digital Fabrication Workshop.jpg" alt="Digital Fabrication Workshop"
+                    class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert2Title">Digital Fabrication Workshop</h3>
+                    <p data-key="cert2Desc">Successfully completed a one-day workshop in Digital Fabrication</p>
+                    <span class="certificate-date" data-key="cert2Org">Creative Mansoura FabLab</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/Design Your Dream Career.jpg" alt="Design Your Dream Career" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert3Title">Design Your Dream Career Training</h3>
+                    <p data-key="cert3Desc">Successfully completed a three-day training in designing your dream career
+                        path</p>
+                    <span class="certificate-date" data-key="cert3Org">Creativa</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/Business Administration.jpg" alt="Business Administration" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert4Title">Business Administration</h3>
+                    <p data-key="cert4Desc">Successfully completed the Business Administration course with Excellent
+                        grade</p>
+                    <span class="certificate-date" data-key="cert4Date">Issue Date: February 2024</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/Digital Marketing.jpg" alt="Digital Marketing" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert5Title">Digital Marketing Fundamentals</h3>
+                    <p data-key="cert5Desc">Successfully completed a one-day workshop in Digital Marketing Fundamentals
+                    </p>
+                    <span class="certificate-date" data-key="cert5Org">Creativa</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/Freelance Bootcamp.jpg" alt="Freelance Bootcamp" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert6Title">Freelance Bootcamp</h3>
+                    <p data-key="cert6Desc">Successfully completed a three-day workshop in freelance development</p>
+                    <span class="certificate-date" data-key="cert6Org">Creativa</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/Computer Applications.jpg" alt="Computer Applications" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert7Title">Advanced Computer Applications</h3>
+                    <p data-key="cert7Desc">Successfully completed the Advanced Computer Applications and IT training
+                        package</p>
+                    <span class="certificate-date" data-key="cert7Date">Issue Date: January 2024</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/IC3 Certification.jpg" alt="IC3 Certification" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert8Title">Internet Core Competency Certification (IC3)</h3>
+                    <p data-key="cert8Desc">Successfully completed the IC3 certification with Excellent grade</p>
+                    <span class="certificate-date" data-key="cert8Date">Issue Date: February 2024</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/General English.jpg" alt="General English" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert9Title">General English</h3>
+                    <p data-key="cert9Desc">Successfully completed the General English course with Excellent grade</p>
+                    <span class="certificate-date" data-key="cert9Date">Issue Date: March 2024</span>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <img src="../images/Human Resources.jpg" alt="Human Resources" class="certificate-img" loading="lazy">
+                <div class="certificate-content">
+                    <h3 data-key="cert10Title">Human Resources</h3>
+                    <p data-key="cert10Desc">Successfully completed the Human Resources course with Excellent grade</p>
+                    <span class="certificate-date" data-key="cert10Date">Issue Date: March 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Mohamed Reda Moussa</div>
+            <p class="footer-text" data-key="footerText">Sales professional and aspiring developer passionate about
+                technology, communication, and continuous learning.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-reda-moussa-472949357" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.facebook.com/mooogalaxy" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/mohamed_moussa_2006" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="mailto:mohamed.reda.mousse@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+201012932133" class="social-link">
+                    <i class="fas fa-phone"></i>
+
+                    <a href="../index.html" class="social-link">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="certificates.html" class="social-link">
+                    <i class="fas fa-certificate"></i>
+                </a>
+                <a href="books.html" class="social-link">
+                    <i class="fas fa-book"></i>
+                </a>
+                <a href="books.html" class="social-link">
+                    <i class="fas fa-code"></i>
+                </a>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mohamed Reda Moussa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/201012932133" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp" style="color: #F5F5F7;"></i>
+    </a>
+
+    <div class="fab" id="fab">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/particles-config.js"></script>
+    <script src="../js/language.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

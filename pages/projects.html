@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Projects - Mohamed Reda Portfolio | Web Development, Python Automation, SEO">
+    <meta name="author" content="Mohamed Reda Moussa">
+    <title>My Projects | Mohamed Reda Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-preview {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .project-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-preview img {
+            transform: scale(1.05);
+        }
+
+        .project-preview-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .project-preview-placeholder i {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--primary);
+        }
+
+        .project-link i {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <nav>
+        <div class="logo">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQF1tOHZBWlEMA/profile-displayphoto-scale_200_200/B4DZlsdKdXJQAY-/0/1758461210926?e=2147483647&v=beta&t=RE8QwMxcJZ6rT68T4whw5kIRxgQIPDFeF7q6F8LahIo"
+                alt="Mohamed Reda" class="logo-img" loading="lazy">
+            <div class="logo-text">MR</div>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html#home" data-key="home">Home</a>
+            <a href="../index.html#about" data-key="about">About</a>
+            <a href="../index.html#skills" data-key="skills">Skills</a>
+            <a href="../index.html#services" data-key="services">Services</a>
+            <a href="../index.html#journey" data-key="journey">Journey</a>
+            <a href="books.html" data-key="books">Books</a>
+            <a href="certificates.html" data-key="certificates">Certificates</a>
+            <a href="projects.html" data-key="projects">Projects</a>
+            <a href="../index.html#contact" data-key="contact">Contact</a>
+            <button class="language-toggle" id="languageToggle">
+                <span id="languageText">العربية</span>
+                <i class="fas fa-globe"></i>
+            </button>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section id="projects" style="padding-top: 100px;">
+        <div class="page-navigation">
+            <a href="../index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> <span data-key="backHome">Back to Home</span>
+            </a>
+        </div>
+        <h2 class="section-title" data-key="projectsTitle">My Projects</h2>
+        <div class="projects-container" id="projectsContainer">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Mohamed Reda Moussa</div>
+            <p class="footer-text" data-key="footerText">Sales professional and aspiring developer passionate about
+                technology, communication, and continuous learning.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-reda-moussa-472949357" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.facebook.com/mooogalaxy" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/mohamed_moussa_2006" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="mailto:mohamed.reda.mousse@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+201012932133" class="social-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+
+                <a href="../index.html" class="social-link">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="certificates.html" class="social-link">
+                    <i class="fas fa-certificate"></i>
+                </a>
+                <a href="books.html" class="social-link">
+                    <i class="fas fa-book"></i>
+                </a>
+                <a href="books.html" class="social-link">
+                    <i class="fas fa-code"></i>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mohamed Reda Moussa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/201012932133" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp" style="color: #F5F5F7;"></i>
+    </a>
+
+    <div class="fab" id="fab">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/particles-config.js"></script>
+    <script src="../js/language.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Projects data
+        const projects = [
+            {
+                title: "E-Commerce Website",
+                description: "A fully responsive e-commerce website built with HTML, CSS, and JavaScript. Features include product filtering, shopping cart, and checkout simulation.",
+                tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+                link: "https://example.com/ecommerce",
+                previewType: "icon",
+                icon: "fa-store"
+            },
+            {
+                title: "Python Automation Tool",
+                description: "Automated Excel data processing tool using Python and Pandas. Extracts customer data from Excel sheets and sends personalized WhatsApp messages.",
+                tech: ["Python", "Pandas", "OpenPyXL", "Automation"],
+                link: "https://github.com/mohamedreda/python-automation",
+                previewType: "icon",
+                icon: "fa-file-excel"
+            },
+            {
+                title: "Portfolio Website",
+                description: "Modern portfolio website with dark mode, responsive design, and SEO optimization. Features include particle background, multilingual support, and smooth animations.",
+                tech: ["HTML5", "CSS3", "JavaScript", "Particles.js"],
+                link: "../index.html",
+                previewType: "icon",
+                icon: "fa-laptop-code"
+            },
+            {
+                title: "SEO Dashboard",
+                description: "A dashboard for tracking SEO metrics including keyword rankings, backlinks, and organic traffic. Built with Chart.js for data visualization.",
+                tech: ["JavaScript", "Chart.js", "API Integration", "SEO"],
+                link: "https://example.com/seo-dashboard",
+                previewType: "icon",
+                icon: "fa-chart-line"
+            },
+            {
+                title: "Task Manager App",
+                description: "A task management application with drag-and-drop functionality, local storage, and dark/light theme support.",
+                tech: ["React", "Local Storage", "Drag & Drop", "CSS Modules"],
+                link: "https://example.com/task-manager",
+                previewType: "icon",
+                icon: "fa-tasks"
+            },
+            {
+                title: "Weather App",
+                description: "Real-time weather application using OpenWeatherMap API. Shows current weather, 5-day forecast, and temperature conversion.",
+                tech: ["JavaScript", "REST API", "Async/Await", "Geolocation"],
+                link: "https://example.com/weather-app",
+                previewType: "icon",
+                icon: "fa-cloud-sun"
+            }
+        ];
+
+        // Function to get website screenshot using an API (placeholder)
+        // You can replace this with a real screenshot service like: 
+        // - https://api.screenshotmachine.com
+        // - https://www.url2png.com
+        // - Or use a simple placeholder
+        function getProjectPreview(project, link) {
+            // If project has a specific image, return it
+            if (project.previewImage) {
+                return `<img src="${project.previewImage}" alt="${project.title}">`;
+            }
+            
+            // If it's a local link, show placeholder with icon
+            if (link && (link.startsWith('../') || link.startsWith('#'))) {
+                return `
+                    <div class="project-preview-placeholder">
+                        <i class="fas ${project.icon || 'fa-code'}"></i>
+                    </div>
+                `;
+            }
+            
+            // For external links, try to use a screenshot service
+            // You'll need to sign up for a free API key at services like screenshotmachine.com
+            // Example with screenshotmachine (you need to add your API key):
+            // const apiKey = 'YOUR_API_KEY';
+            // const screenshotUrl = `https://api.screenshotmachine.com/?key=${apiKey}&url=${encodeURIComponent(link)}&dimension=1024x768`;
+            
+            // For now, use a placeholder with icon and link info
+            return `
+                <div class="project-preview-placeholder">
+                    <i class="fas ${project.icon || 'fa-globe'}"></i>
+                    <div style="position: absolute; bottom: 10px; font-size: 10px; background: rgba(0,0,0,0.7); padding: 2px 5px; border-radius: 5px;">
+                        ${new URL(link).hostname}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render projects
+        function renderProjects() {
+            const container = document.getElementById('projectsContainer');
+            if (!container) return;
+            
+            container.innerHTML = projects.map(project => {
+                const link = project.link;
+                const previewHtml = getProjectPreview(project, link);
+                
+                // Get translated text if available
+                const titleKey = `project${projects.indexOf(project) + 1}Title`;
+                const descKey = `project${projects.indexOf(project) + 1}Desc`;
+                
+                return `
+                    <div class="project-card">
+                        <div class="project-preview">
+                            ${previewHtml}
+                        </div>
+                        <div class="project-content">
+                            <h3 data-key="${titleKey}">${project.title}</h3>
+                            <p data-key="${descKey}">${project.description}</p>
+                            <div class="project-tech">
+                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                            <div class="project-links">
+                                <a href="${link}" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i> 
+                                    <span data-key="viewProject">View Project</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Add translation for viewProject
+        if (texts.en) {
+            texts.en.viewProject = "View Project";
+            texts.ar.viewProject = "عرض المشروع";
+            texts.en.backHome = "Back to Home";
+            texts.ar.backHome = "العودة للرئيسية";
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            
+            // Update project titles and descriptions with translations
+            const updateProjectTranslations = () => {
+                const lang = currentLang || 'en';
+                projects.forEach((project, index) => {
+                    const titleKey = `project${index + 1}Title`;
+                    const descKey = `project${index + 1}Desc`;
+                    if (!texts[lang][titleKey]) {
+                        texts[lang][titleKey] = project.title;
+                        texts[lang][descKey] = project.description;
+                    }
+                });
+            };
+            updateProjectTranslations();
+        });
+    </script>
+</body>
+
+</html>

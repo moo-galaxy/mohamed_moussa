@@ -189,7 +189,6 @@
                 <a href="tel:+201012932133" class="social-link">
                     <i class="fas fa-phone"></i>
                 </a>
-
                 <a href="../index.html" class="social-link">
                     <i class="fas fa-home"></i>
                 </a>
@@ -199,9 +198,6 @@
                 <a href="books.html" class="social-link">
                     <i class="fas fa-book"></i>
                 </a>
-                <!-- <a href="projects.html" class="social-link">
-                    <i class="fas fa-code"></i>
-                </a> -->
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Mohamed Reda Moussa. All rights reserved.</p>
@@ -222,107 +218,117 @@
     <script src="../js/language.js"></script>
     <script src="../js/main.js"></script>
     <script>
-        // Projects data
+        // Updated projects data with your real Vercel links, titles, and descriptions
         const projects = [
             {
-                title: "E-Commerce Website",
-                description: "A fully responsive e-commerce website built with HTML, CSS, and JavaScript. Features include product filtering, shopping cart, and checkout simulation.",
-                tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-                link: "https://example.com/ecommerce",
-                previewType: "icon",
-                icon: "fa-store"
+                title: "Helmy Travel",
+                description: "A modern travel and tourism platform built with a sleek design, showcasing destinations and services with an immersive user experience.",
+                tech: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+                link: "https://helmy-travel.vercel.app",
+                icon: "fa-plane-departure"
             },
             {
-                title: "Python Automation Tool",
-                description: "Automated Excel data processing tool using Python and Pandas. Extracts customer data from Excel sheets and sends personalized WhatsApp messages.",
-                tech: ["Python", "Pandas", "OpenPyXL", "Automation"],
-                link: "https://github.com/mohamedreda/python-automation",
-                previewType: "icon",
-                icon: "fa-file-excel"
+                title: "New The Hive",
+                description: "A dynamic collaborative workspace or community hub website featuring modern aesthetics and smooth navigation for team productivity.",
+                tech: ["React", "CSS3", "JavaScript", "Responsive"],
+                link: "https://new-the-hive.vercel.app",
+                icon: "fa-hive"
             },
             {
-                title: "Portfolio Website",
-                description: "Modern portfolio website with dark mode, responsive design, and SEO optimization. Features include particle background, multilingual support, and smooth animations.",
-                tech: ["HTML5", "CSS3", "JavaScript", "Particles.js"],
-                link: "../index.html",
-                previewType: "icon",
-                icon: "fa-laptop-code"
+                title: "Mohamed Atalla Portfolio",
+                description: "A professional portfolio website for Mohamed Atalla, highlighting creative work, skills, and achievements with a clean layout.",
+                tech: ["HTML5", "CSS3", "JavaScript", "Portfolio"],
+                link: "https://mohamed-atalla.vercel.app",
+                icon: "fa-user-tie"
             },
             {
-                title: "SEO Dashboard",
-                description: "A dashboard for tracking SEO metrics including keyword rankings, backlinks, and organic traffic. Built with Chart.js for data visualization.",
-                tech: ["JavaScript", "Chart.js", "API Integration", "SEO"],
-                link: "https://example.com/seo-dashboard",
-                previewType: "icon",
-                icon: "fa-chart-line"
+                title: "Sanae Delta",
+                description: "An elegant web presence for Sanae Delta, possibly a brand, artist, or service, featuring a minimalist and engaging interface.",
+                tech: ["Next.js", "Tailwind", "Animation", "UI/UX"],
+                link: "https://sanae-delta.vercel.app",
+                icon: "fa-star"
             },
             {
-                title: "Task Manager App",
-                description: "A task management application with drag-and-drop functionality, local storage, and dark/light theme support.",
-                tech: ["React", "Local Storage", "Drag & Drop", "CSS Modules"],
-                link: "https://example.com/task-manager",
-                previewType: "icon",
-                icon: "fa-tasks"
+                title: "Al Jazeera Sepia",
+                description: "A news-inspired or media-rich platform with a sepia-themed design, offering a unique visual storytelling experience.",
+                tech: ["React", "CSS", "Media", "Design"],
+                link: "https://al-jazeera-sepia.vercel.app",
+                icon: "fa-newspaper"
             },
             {
-                title: "Weather App",
-                description: "Real-time weather application using OpenWeatherMap API. Shows current weather, 5-day forecast, and temperature conversion.",
-                tech: ["JavaScript", "REST API", "Async/Await", "Geolocation"],
-                link: "https://example.com/weather-app",
-                previewType: "icon",
-                icon: "fa-cloud-sun"
+                title: "Tasneem Pied",
+                description: "A delightful web application for Tasneem, potentially a bakery, patisserie, or creative portfolio with a charming aesthetic.",
+                tech: ["JavaScript", "HTML", "CSS", "Vercel"],
+                link: "https://tasneem-pied.vercel.app",
+                icon: "fa-cake-candles"
+            },
+            {
+                title: "Ashraket Gamal",
+                description: "A personal or business website for Ashraket Gamal, showcasing services, projects, or a brand identity with a polished look.",
+                tech: ["React", "Tailwind", "Vercel", "Responsive"],
+                link: "https://ashraket-gamal.vercel.app",
+                icon: "fa-sun"
+            },
+            {
+                title: "Yasmina",
+                description: "A stylish and feminine web platform for Yasmina, focusing on elegance, lifestyle content, or professional services.",
+                tech: ["Next.js", "CSS3", "JavaScript", "UI"],
+                link: "https://yasmina-o6ld.vercel.app",
+                icon: "fa-flower"
+            },
+            {
+                title: "Hossam El Karashy",
+                description: "A robust portfolio or business site for Hossam El Karashy, emphasizing expertise, professionalism, and a strong visual presence.",
+                tech: ["React", "HTML5", "CSS3", "Portfolio"],
+                link: "https://hossam-el-karashy.vercel.app",
+                icon: "fa-briefcase"
+            },
+            {
+                title: "Salma Theta",
+                description: "A creative and modern website for Salma, possibly a designer, developer, or artist, with a focus on theta-inspired branding.",
+                tech: ["JavaScript", "Tailwind", "Animation", "Design"],
+                link: "https://salma-theta.vercel.app",
+                icon: "fa-paint-brush"
+            },
+            {
+                title: "Haneen Two",
+                description: "A dual-concept or second-iteration website for Haneen, offering a blend of personal branding, blog, or service showcase.",
+                tech: ["React", "CSS", "Vercel", "Interactive"],
+                link: "https://haneen-two.vercel.app",
+                icon: "fa-heart"
             }
         ];
 
-        // Function to get website screenshot using an API (placeholder)
-        // You can replace this with a real screenshot service like: 
-        // - https://api.screenshotmachine.com
-        // - https://www.url2png.com
-        // - Or use a simple placeholder
+        // Function to get website screenshot using a free service (like thum.io or similar)
+        // This generates a preview image automatically for each Vercel link, similar to how WhatsApp shows link previews.
         function getProjectPreview(project, link) {
-            // If project has a specific image, return it
-            if (project.previewImage) {
-                return `<img src="${project.previewImage}" alt="${project.title}">`;
-            }
+            // Use a free screenshot API to automatically capture the website thumbnail.
+            // The service 'api.microlink.io' provides a simple way to get website screenshots.
+            // We'll construct the URL with the project link and a fallback size.
+            const screenshotApiUrl = `https://api.microlink.io/?url=${encodeURIComponent(link)}&screenshot=true&meta=false&embed=screenshot.url`;
             
-            // If it's a local link, show placeholder with icon
-            if (link && (link.startsWith('../') || link.startsWith('#'))) {
-                return `
-                    <div class="project-preview-placeholder">
-                        <i class="fas ${project.icon || 'fa-code'}"></i>
-                    </div>
-                `;
-            }
-            
-            // For external links, try to use a screenshot service
-            // You'll need to sign up for a free API key at services like screenshotmachine.com
-            // Example with screenshotmachine (you need to add your API key):
-            // const apiKey = 'YOUR_API_KEY';
-            // const screenshotUrl = `https://api.screenshotmachine.com/?key=${apiKey}&url=${encodeURIComponent(link)}&dimension=1024x768`;
-            
-            // For now, use a placeholder with icon and link info
+            // Return an image tag with the API as the source. 
+            // We also add an onerror fallback to show a placeholder icon if the image fails to load.
             return `
-                <div class="project-preview-placeholder">
-                    <i class="fas ${project.icon || 'fa-globe'}"></i>
-                    <div style="position: absolute; bottom: 10px; font-size: 10px; background: rgba(0,0,0,0.7); padding: 2px 5px; border-radius: 5px;">
-                        ${new URL(link).hostname}
-                    </div>
-                </div>
+                <img src="${screenshotApiUrl}" 
+                     alt="${project.title} preview" 
+                     loading="lazy"
+                     onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'project-preview-placeholder\\'><i class=\\'fas ${project.icon || 'fa-globe'}\\'></i><div style=\\'position: absolute; bottom: 10px; font-size: 10px; background: rgba(0,0,0,0.7); padding: 2px 8px; border-radius: 10px;\\'>${new URL(link).hostname}</div></div>';">
             `;
         }
 
-        // Render projects
+        // Render projects into the container
         function renderProjects() {
             const container = document.getElementById('projectsContainer');
             if (!container) return;
             
-            container.innerHTML = projects.map(project => {
+            container.innerHTML = projects.map((project, index) => {
                 const link = project.link;
                 const previewHtml = getProjectPreview(project, link);
                 
-                // Get translated text if available
-                const titleKey = `project${projects.indexOf(project) + 1}Title`;
-                const descKey = `project${projects.indexOf(project) + 1}Desc`;
+                // Dynamic translation keys for bilingual support
+                const titleKey = `project${index + 1}Title`;
+                const descKey = `project${index + 1}Desc`;
                 
                 return `
                     <div class="project-card">
@@ -340,6 +346,9 @@
                                     <i class="fas fa-external-link-alt"></i> 
                                     <span data-key="viewProject">View Project</span>
                                 </a>
+                                <a href="${link}" class="project-link" target="_blank" rel="noopener noreferrer" style="margin-left: 10px;">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -347,31 +356,68 @@
             }).join('');
         }
 
-        // Add translation for viewProject
-        if (texts.en) {
+        // Extend translation texts to include dynamic project data and new phrases
+        function extendTranslations() {
+            if (typeof texts === 'undefined') {
+                window.texts = { en: {}, ar: {} };
+            }
+            if (!texts.en) texts.en = {};
+            if (!texts.ar) texts.ar = {};
+
+            // Add static translations
             texts.en.viewProject = "View Project";
             texts.ar.viewProject = "عرض المشروع";
             texts.en.backHome = "Back to Home";
             texts.ar.backHome = "العودة للرئيسية";
+            texts.en.projectsTitle = "My Projects";
+            texts.ar.projectsTitle = "مشاريعي";
+
+            // Add each project's bilingual title and description
+            const arabicTitles = [
+                "هيلمي للسفر", "ذا هايف الجديدة", "محمد عطا الله", "صنايع دلتا",
+                "الجزيرة سيبيا", "تسنيم بييد", "أشرقت جمال", "ياسمينة",
+                "حسام الكاراشي", "سلمى ثيتا", "حنين تو"
+            ];
+            const arabicDescriptions = [
+                "منصة سفر وسياحة عصرية بتصميم أنيق تعرض الوجهات والخدمات بتجربة مستخدم غامرة.",
+                "موقع مساحة عمل تعاونية أو مجتمع ديناميكي يتميز بجماليات حديثة وتنقل سلس لإنتاجية الفريق.",
+                "موقع بورتفوليو احترافي لمحمد عطا الله يبرز الأعمال الإبداعية والمهارات والإنجازات بتصميم نظيف.",
+                "وجود إلكتروني أنيق لسناء دلتا، ربما علامة تجارية أو فنانة أو خدمة، بواجهة بسيطة وجذابة.",
+                "منصة مستوحاة من الأخبار أو غنية بالوسائط بتصميم بني داكن، تقدم تجربة سرد بصري فريدة.",
+                "تطبيق ويب مبهج لتسنيم، ربما مخبز أو متجر حلويات أو بورتفوليو إبداعي بجمالية ساحرة.",
+                "موقع شخصي أو تجاري لأشرقت جمال يعرض خدمات أو مشاريع أو هوية تجارية بمظهر مصقول.",
+                "منصة ويب أنيقة وأنثوية لياسمينة تركز على الأناقة أو محتوى نمط الحياة أو الخدمات المهنية.",
+                "بورتفوليو قوي أو موقع أعمال لحسام الكاراشي يركز على الخبرة والاحترافية وحضور بصري قوي.",
+                "موقع إبداعي وعصري لسلمى، ربما مصممة أو مطورة أو فنانة، مع تركيز على العلامة التجارية المستوحاة من ثيتا.",
+                "موقع بتصميم مزدوج أو الإصدار الثاني لحنين يقدم مزيجًا من العلامة التجارية الشخصية أو المدونة أو عرض الخدمات."
+            ];
+
+            projects.forEach((project, index) => {
+                const titleKey = `project${index + 1}Title`;
+                const descKey = `project${index + 1}Desc`;
+                
+                if (!texts.en[titleKey]) texts.en[titleKey] = project.title;
+                if (!texts.en[descKey]) texts.en[descKey] = project.description;
+                
+                if (!texts.ar[titleKey] && arabicTitles[index]) texts.ar[titleKey] = arabicTitles[index];
+                if (!texts.ar[descKey] && arabicDescriptions[index]) texts.ar[descKey] = arabicDescriptions[index];
+            });
         }
 
-        // Initialize
+        // Initialize everything after DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
+            extendTranslations();
             renderProjects();
             
-            // Update project titles and descriptions with translations
-            const updateProjectTranslations = () => {
-                const lang = currentLang || 'en';
-                projects.forEach((project, index) => {
-                    const titleKey = `project${index + 1}Title`;
-                    const descKey = `project${index + 1}Desc`;
-                    if (!texts[lang][titleKey]) {
-                        texts[lang][titleKey] = project.title;
-                        texts[lang][descKey] = project.description;
-                    }
-                });
-            };
-            updateProjectTranslations();
+            // If language.js exposes a function to update UI, we could call it here.
+            // But we rely on the existing language toggle to refresh the page or re-render.
+            if (typeof updateContent === 'function') {
+                // Optional: force a language update if the function exists
+                setTimeout(() => {
+                    const currentLang = localStorage.getItem('language') || 'en';
+                    if (typeof updateContent === 'function') updateContent(currentLang);
+                }, 100);
+            }
         });
     </script>
 </body>

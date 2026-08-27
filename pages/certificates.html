@@ -3,65 +3,520 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="My Certificates - Mohamed Reda Portfolio">
     <meta name="author" content="Mohamed Reda Moussa">
     <title>My Certificates | Mohamed Reda Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* ==========================================
+           GLOBAL STYLES - نفس استايل الصفحة الرئيسية
+           ========================================== */
+        :root {
+            --primary-color: #F97316;
+            --primary-light: #FB923C;
+            --primary-dark: #EA580C;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(249, 115, 22, 0.4);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --transition: 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 15px 50px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .language-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .language-toggle:hover {
+            border-color: var(--primary-color);
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        /* ==========================================
+           MAIN CONTENT
+           ========================================== */
+        section {
+            padding: 120px 20px 60px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 3px;
+        }
+
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* ==========================================
+           CERTIFICATES GRID
+           ========================================== */
         .certificates-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            width: 100%;
         }
 
         .certificate-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
 
         .certificate-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
         }
 
         .certificate-img {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .certificate-content {
-            padding: 1.2rem;
+            padding: 20px;
         }
 
         .certificate-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            color: var(--primary-color);
             font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .certificate-content p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
             font-size: 0.85rem;
-            margin-bottom: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
         .certificate-date {
             display: inline-block;
-            background: rgba(108, 99, 255, 0.2);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--primary-light);
+            padding: 5px 15px;
+            border-radius: 15px;
             font-size: 0.75rem;
             font-weight: 600;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer {
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 20px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .social-link:hover {
+            background: rgba(249, 115, 22, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================
+           FLOATING BUTTONS
+           ========================================== */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(249, 115, 22, 0.4);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .fab.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.6);
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 20px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 100px 15px 40px;
+            }
+
+            .certificates-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .certificate-img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 10px 15px;
+            }
+
+            .logo-img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 90px 10px 30px;
+            }
+
+            .whatsapp-button,
+            .fab {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                bottom: 20px;
+            }
+
+            .whatsapp-button {
+                left: 20px;
+            }
+
+            .fab {
+                right: 20px;
+            }
+
+            .footer-content {
+                padding: 0 10px;
+            }
+        }
+
+        /* Arabic RTL Support */
+        html[lang="ar"] body {
+            direction: rtl;
+        }
+
+        html[lang="ar"] .back-link i {
+            transform: scaleX(-1);
         }
     </style>
 </head>
@@ -69,20 +524,21 @@
 <body>
     <div id="particles-js"></div>
 
-    <nav>
-        <div class="logo">
+    <nav id="navbar">
+        <a href="../index.html" class="logo">
             <img src="https://media.licdn.com/dms/image/v2/D4D03AQF1tOHZBWlEMA/profile-displayphoto-scale_200_200/B4DZlsdKdXJQAY-/0/1758461210926?e=2147483647&v=beta&t=RE8QwMxcJZ6rT68T4whw5kIRxgQIPDFeF7q6F8LahIo"
                 alt="Mohamed Reda" class="logo-img" loading="lazy">
-            <div class="logo-text">MR</div>
-        </div>
-        <div class="nav-links">
+            <span class="logo-text">MR</span>
+        </a>
+        <div class="nav-links" id="navLinks">
             <a href="../index.html#home" data-key="home">Home</a>
             <a href="../index.html#about" data-key="about">About</a>
             <a href="../index.html#skills" data-key="skills">Skills</a>
             <a href="../index.html#services" data-key="services">Services</a>
             <a href="../index.html#journey" data-key="journey">Journey</a>
+            <a href="../index.html#brand" data-key="brand">Heend Mand</a>
             <a href="books.html" data-key="books">Books</a>
-            <a href="certificates.html" data-key="certificates">Certificates</a>
+            <a href="certificates.html" data-key="certificates" class="active">Certificates</a>
             <a href="projects.html" data-key="projects">Projects</a>
             <a href="../index.html#contact" data-key="contact">Contact</a>
             <button class="language-toggle" id="languageToggle">
@@ -97,13 +553,13 @@
         </div>
     </nav>
 
-    <section id="certificates" style="padding-top: 100px;">
+    <section>
         <div class="page-navigation">
             <a href="../index.html" class="back-link">
                 <i class="fas fa-arrow-left"></i> <span data-key="backHome">Back to Home</span>
             </a>
         </div>
-        <h2 class="section-title" data-key="certificatesTitle">My Certificates</h2>
+        <h2 class="section-title">My <span>Certificates</span></h2>
         <div class="certificates-container">
             <div class="certificate-card">
                 <img src="../images/Time Management.jpg" alt="Time Management Certificate" class="certificate-img" loading="lazy">
@@ -114,8 +570,7 @@
                 </div>
             </div>
             <div class="certificate-card">
-                <img src="../images/Digital Fabrication Workshop.jpg" alt="Digital Fabrication Workshop"
-                    class="certificate-img" loading="lazy">
+                <img src="../images/Digital Fabrication Workshop.jpg" alt="Digital Fabrication Workshop" class="certificate-img" loading="lazy">
                 <div class="certificate-content">
                     <h3 data-key="cert2Title">Digital Fabrication Workshop</h3>
                     <p data-key="cert2Desc">Successfully completed a one-day workshop in Digital Fabrication</p>
@@ -126,8 +581,7 @@
                 <img src="../images/Design Your Dream Career.jpg" alt="Design Your Dream Career" class="certificate-img" loading="lazy">
                 <div class="certificate-content">
                     <h3 data-key="cert3Title">Design Your Dream Career Training</h3>
-                    <p data-key="cert3Desc">Successfully completed a three-day training in designing your dream career
-                        path</p>
+                    <p data-key="cert3Desc">Successfully completed a three-day training in designing your dream career path</p>
                     <span class="certificate-date" data-key="cert3Org">Creativa</span>
                 </div>
             </div>
@@ -135,8 +589,7 @@
                 <img src="../images/Business Administration.jpg" alt="Business Administration" class="certificate-img" loading="lazy">
                 <div class="certificate-content">
                     <h3 data-key="cert4Title">Business Administration</h3>
-                    <p data-key="cert4Desc">Successfully completed the Business Administration course with Excellent
-                        grade</p>
+                    <p data-key="cert4Desc">Successfully completed the Business Administration course with Excellent grade</p>
                     <span class="certificate-date" data-key="cert4Date">Issue Date: February 2024</span>
                 </div>
             </div>
@@ -144,8 +597,7 @@
                 <img src="../images/Digital Marketing.jpg" alt="Digital Marketing" class="certificate-img" loading="lazy">
                 <div class="certificate-content">
                     <h3 data-key="cert5Title">Digital Marketing Fundamentals</h3>
-                    <p data-key="cert5Desc">Successfully completed a one-day workshop in Digital Marketing Fundamentals
-                    </p>
+                    <p data-key="cert5Desc">Successfully completed a one-day workshop in Digital Marketing Fundamentals</p>
                     <span class="certificate-date" data-key="cert5Org">Creativa</span>
                 </div>
             </div>
@@ -161,8 +613,7 @@
                 <img src="../images/Computer Applications.jpg" alt="Computer Applications" class="certificate-img" loading="lazy">
                 <div class="certificate-content">
                     <h3 data-key="cert7Title">Advanced Computer Applications</h3>
-                    <p data-key="cert7Desc">Successfully completed the Advanced Computer Applications and IT training
-                        package</p>
+                    <p data-key="cert7Desc">Successfully completed the Advanced Computer Applications and IT training package</p>
                     <span class="certificate-date" data-key="cert7Date">Issue Date: January 2024</span>
                 </div>
             </div>
@@ -196,54 +647,25 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">Mohamed Reda Moussa</div>
-            <p class="footer-text" data-key="footerText">Sales professional and aspiring developer passionate about
-                technology, communication, and continuous learning.</p>
+            <p class="footer-text" data-key="footerText">Sales professional and aspiring developer passionate about technology, communication, and continuous learning.</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/mohamed-reda-moussa-472949357" class="social-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://www.facebook.com/mooogalaxy" class="social-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/abomoussa.dev?igsh=c2c5eTh6ZWQxNTh4" class="social-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="mailto:mohamed.reda.mousse@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="tel:+201012932133" class="social-link">
-                    <i class="fas fa-phone"></i>
-
-                    <a href="../index.html" class="social-link">
-                    <i class="fas fa-home"></i>
-                </a>
-                <!-- <a href="certificates.html" class="social-link">
-                    <i class="fas fa-certificate"></i>
-                </a> -->
-                <a href="books.html" class="social-link">
-                    <i class="fas fa-book"></i>
-                </a>
-                <a href="projects.html" class="social-link">
-                    <i class="fas fa-code"></i>
-                </a>
-                </a>
+                <a href="https://www.linkedin.com/in/mohamed-reda-moussa-472949357" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/mooogalaxy" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/abomoussa.dev" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:mohamed.reda.mousse@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+201012932133" class="social-link"><i class="fas fa-phone"></i></a>
+                <a href="../index.html" class="social-link"><i class="fas fa-home"></i></a>
+                <a href="books.html" class="social-link"><i class="fas fa-book"></i></a>
+                <a href="projects.html" class="social-link"><i class="fas fa-code"></i></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Mohamed Reda Moussa. All rights reserved.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Mohamed Reda Moussa. All rights reserved.</p></div>
         </div>
     </footer>
 
     <a href="https://wa.me/201012932133" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-whatsapp" style="color: #F5F5F7;"></i>
+        <i class="fa-brands fa-whatsapp"></i>
     </a>
-
-    <div class="fab" id="fab">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <div class="fab" id="fab"><i class="fas fa-arrow-up"></i></div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/particles-config.js"></script>

@@ -3,47 +3,263 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="My Projects - Mohamed Reda Portfolio | Web Development, Python Automation, SEO">
     <meta name="author" content="Mohamed Reda Moussa">
     <title>My Projects | Mohamed Reda Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* [نفس الـ CSS السابق بدون تغيير] */
+        :root {
+            --primary-color: #F97316;
+            --primary-light: #FB923C;
+            --primary-dark: #EA580C;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(249, 115, 22, 0.4);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --transition: 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 15px 50px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .language-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .language-toggle:hover {
+            border-color: var(--primary-color);
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        section {
+            padding: 120px 20px 60px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 3px;
+        }
+
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
         .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            width: 100%;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
         }
 
         .project-preview {
-            position: relative;
             width: 100%;
             height: 200px;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
         }
 
         .project-preview img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: var(--transition);
         }
 
         .project-card:hover .project-preview img {
@@ -51,73 +267,281 @@
         }
 
         .project-preview-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-
-        .project-preview-placeholder i {
-            font-size: 4rem;
-            color: white;
+            font-size: 3rem;
+            color: var(--primary-light);
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 20px;
         }
 
         .project-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         .project-content p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 8px;
+            margin-bottom: 15px;
         }
 
         .tech-tag {
-            background: rgba(108, 99, 255, 0.2);
-            color: var(--primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--primary-light);
+            padding: 4px 12px;
+            border-radius: 15px;
             font-size: 0.7rem;
             font-weight: 600;
+            border: 1px solid rgba(249, 115, 22, 0.2);
         }
 
         .project-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 15px;
         }
 
         .project-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            color: var(--light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
         }
 
         .project-link:hover {
-            color: var(--primary);
+            color: var(--primary-color);
         }
 
-        .project-link i {
-            font-size: 1rem;
+        footer {
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 20px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .social-link:hover {
+            background: rgba(249, 115, 22, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(249, 115, 22, 0.4);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .fab.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.6);
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                padding: 20px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 100px 15px 40px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-preview {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 10px 15px;
+            }
+
+            .logo-img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 90px 10px 30px;
+            }
+
+            .whatsapp-button,
+            .fab {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                bottom: 20px;
+            }
+
+            .whatsapp-button {
+                left: 20px;
+            }
+
+            .fab {
+                right: 20px;
+            }
+
+            .footer-content {
+                padding: 0 10px;
+            }
+        }
+
+        html[lang="ar"] body {
+            direction: rtl;
+        }
+
+        html[lang="ar"] .back-link i {
+            transform: scaleX(-1);
         }
     </style>
 </head>
@@ -125,21 +549,22 @@
 <body>
     <div id="particles-js"></div>
 
-    <nav>
-        <div class="logo">
+    <nav id="navbar">
+        <a href="../index.html" class="logo">
             <img src="https://media.licdn.com/dms/image/v2/D4D03AQF1tOHZBWlEMA/profile-displayphoto-scale_200_200/B4DZlsdKdXJQAY-/0/1758461210926?e=2147483647&v=beta&t=RE8QwMxcJZ6rT68T4whw5kIRxgQIPDFeF7q6F8LahIo"
                 alt="Mohamed Reda" class="logo-img" loading="lazy">
-            <div class="logo-text">MR</div>
-        </div>
-        <div class="nav-links">
+            <span class="logo-text">MR</span>
+        </a>
+        <div class="nav-links" id="navLinks">
             <a href="../index.html#home" data-key="home">Home</a>
             <a href="../index.html#about" data-key="about">About</a>
             <a href="../index.html#skills" data-key="skills">Skills</a>
             <a href="../index.html#services" data-key="services">Services</a>
             <a href="../index.html#journey" data-key="journey">Journey</a>
+            <a href="../index.html#brand" data-key="brand">Heend Mand</a>
             <a href="books.html" data-key="books">Books</a>
             <a href="certificates.html" data-key="certificates">Certificates</a>
-            <a href="projects.html" data-key="projects">Projects</a>
+            <a href="projects.html" data-key="projects" class="active">Projects</a>
             <a href="../index.html#contact" data-key="contact">Contact</a>
             <button class="language-toggle" id="languageToggle">
                 <span id="languageText">العربية</span>
@@ -153,273 +578,747 @@
         </div>
     </nav>
 
-    <section id="projects" style="padding-top: 100px;">
+    <section>
         <div class="page-navigation">
             <a href="../index.html" class="back-link">
                 <i class="fas fa-arrow-left"></i> <span data-key="backHome">Back to Home</span>
             </a>
         </div>
-        <h2 class="section-title" data-key="projectsTitle">My Projects</h2>
+        <h2 class="section-title">My <span>Projects</span></h2>
         <div class="projects-container" id="projectsContainer">
-            <!-- Projects will be dynamically loaded here -->
+            <!-- Projects will be loaded by JavaScript -->
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
             <div class="footer-logo">Mohamed Reda Moussa</div>
-            <p class="footer-text" data-key="footerText">Sales professional and aspiring developer passionate about
-                technology, communication, and continuous learning.</p>
+            <p class="footer-text" data-key="footerText">Sales professional and aspiring developer passionate about technology, communication, and continuous learning.</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/mohamed-reda-moussa-472949357" class="social-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://www.facebook.com/mooogalaxy" class="social-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/abomoussa.dev?igsh=c2c5eTh6ZWQxNTh4" class="social-link" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="mailto:mohamed.reda.mousse@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="tel:+201012932133" class="social-link">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="../index.html" class="social-link">
-                    <i class="fas fa-home"></i>
-                </a>
-                <a href="certificates.html" class="social-link">
-                    <i class="fas fa-certificate"></i>
-                </a>
-                <a href="books.html" class="social-link">
-                    <i class="fas fa-book"></i>
-                </a>
+                <a href="https://www.linkedin.com/in/mohamed-reda-moussa-472949357" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/mooogalaxy" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/abomoussa.dev" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:mohamed.reda.mousse@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+201012932133" class="social-link"><i class="fas fa-phone"></i></a>
+                <a href="../index.html" class="social-link"><i class="fas fa-home"></i></a>
+                <a href="certificates.html" class="social-link"><i class="fas fa-certificate"></i></a>
+                <a href="books.html" class="social-link"><i class="fas fa-book"></i></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Mohamed Reda Moussa. All rights reserved.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Mohamed Reda Moussa. All rights reserved.</p></div>
         </div>
     </footer>
 
     <a href="https://wa.me/201012932133" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-whatsapp" style="color: #F5F5F7;"></i>
+        <i class="fa-brands fa-whatsapp"></i>
     </a>
-
-    <div class="fab" id="fab">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <div class="fab" id="fab"><i class="fas fa-arrow-up"></i></div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/particles-config.js"></script>
     <script src="../js/language.js"></script>
-    <script src="../js/main.js"></script>
     <script>
-        // Updated projects data with your real Vercel links, titles, and descriptions
-        const projects = [
-            {
-                title: "Helmy Travel",
-                description: "A modern travel and tourism platform built with a sleek design, showcasing destinations and services with an immersive user experience.",
-                tech: ["Next.js", "React", "Tailwind CSS", "Vercel"],
-                link: "https://helmy-travel.vercel.app",
-                icon: "fa-plane-departure"
-            },
-            {
-                title: "New The Hive",
-                description: "A dynamic collaborative workspace or community hub website featuring modern aesthetics and smooth navigation for team productivity.",
-                tech: ["React", "CSS3", "JavaScript", "Responsive"],
-                link: "https://new-the-hive.vercel.app",
-                icon: "fa-hive"
-            },
-            {
-                title: "Mohamed Atalla Portfolio",
-                description: "A professional portfolio website for Mohamed Atalla, highlighting creative work, skills, and achievements with a clean layout.",
-                tech: ["HTML5", "CSS3", "JavaScript", "Portfolio"],
-                link: "https://mohamed-atalla.vercel.app",
-                icon: "fa-user-tie"
-            },
-            {
-                title: "Sanae Delta",
-                description: "An elegant web presence for Sanae Delta, possibly a brand, artist, or service, featuring a minimalist and engaging interface.",
-                tech: ["Next.js", "Tailwind", "Animation", "UI/UX"],
-                link: "https://sanae-delta.vercel.app",
-                icon: "fa-star"
-            },
-            {
-                title: "Al Jazeera Sepia",
-                description: "A news-inspired or media-rich platform with a sepia-themed design, offering a unique visual storytelling experience.",
-                tech: ["React", "CSS", "Media", "Design"],
-                link: "https://al-jazeera-sepia.vercel.app",
-                icon: "fa-newspaper"
-            },
-            {
-                title: "Tasneem Pied",
-                description: "A delightful web application for Tasneem, potentially a bakery, patisserie, or creative portfolio with a charming aesthetic.",
-                tech: ["JavaScript", "HTML", "CSS", "Vercel"],
-                link: "https://tasneem-pied.vercel.app",
-                icon: "fa-cake-candles"
-            },
-            {
-                title: "Ashraket Gamal",
-                description: "A personal or business website for Ashraket Gamal, showcasing services, projects, or a brand identity with a polished look.",
-                tech: ["React", "Tailwind", "Vercel", "Responsive"],
-                link: "https://ashraket-gamal.vercel.app",
-                icon: "fa-sun"
-            },
-            {
-                title: "Yasmina",
-                description: "A stylish and feminine web platform for Yasmina, focusing on elegance, lifestyle content, or professional services.",
-                tech: ["Next.js", "CSS3", "JavaScript", "UI"],
-                link: "https://yasmina-o6ld.vercel.app",
-                icon: "fa-flower"
-            },
-            {
-                title: "Hossam El Karashy",
-                description: "A robust portfolio or business site for Hossam El Karashy, emphasizing expertise, professionalism, and a strong visual presence.",
-                tech: ["React", "HTML5", "CSS3", "Portfolio"],
-                link: "https://hossam-el-karashy.vercel.app",
-                icon: "fa-briefcase"
-            },
-            {
-                title: "Salma Theta",
-                description: "A creative and modern website for Salma, possibly a designer, developer, or artist, with a focus on theta-inspired branding.",
-                tech: ["JavaScript", "Tailwind", "Animation", "Design"],
-                link: "https://salma-theta.vercel.app",
-                icon: "fa-paint-brush"
-            },
-            {
-                title: "Haneen Two",
-                description: "A dual-concept or second-iteration website for Haneen, offering a blend of personal branding, blog, or service showcase.",
-                tech: ["React", "CSS", "Vercel", "Interactive"],
-                link: "https://haneen-two.vercel.app",
-                icon: "fa-heart"
-            }
-        ];
+        // ============================================
+        // OOP Implementation for Projects Management
+        // ============================================
 
-        // Function to get website screenshot using a free service (like thum.io or similar)
-        // This generates a preview image automatically for each Vercel link, similar to how WhatsApp shows link previews.
-        function getProjectPreview(project, link) {
-            // Use a free screenshot API to automatically capture the website thumbnail.
-            // The service 'api.microlink.io' provides a simple way to get website screenshots.
-            // We'll construct the URL with the project link and a fallback size.
-            const screenshotApiUrl = `https://api.microlink.io/?url=${encodeURIComponent(link)}&screenshot=true&meta=false&embed=screenshot.url`;
-            
-            // Return an image tag with the API as the source. 
-            // We also add an onerror fallback to show a placeholder icon if the image fails to load.
-            return `
-                <img src="${screenshotApiUrl}" 
-                     alt="${project.title} preview" 
-                     loading="lazy"
-                     onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'project-preview-placeholder\\'><i class=\\'fas ${project.icon || 'fa-globe'}\\'></i><div style=\\'position: absolute; bottom: 10px; font-size: 10px; background: rgba(0,0,0,0.7); padding: 2px 8px; border-radius: 10px;\\'>${new URL(link).hostname}</div></div>';">
-            `;
+        /**
+         * Project Class - Represents a single project
+         * 
+         * @param {Object} config - Project configuration object
+         * @param {string} config.title - Project title (required)
+         * @param {string} config.description - Project description (required)
+         * @param {string[]} config.tech - Array of technologies used (required)
+         * @param {string} config.link - Project URL (required)
+         * @param {string} [config.icon] - Font Awesome icon class (optional, default: 'fa-globe')
+         * @param {string} [config.image] - Custom image URL (optional, if not provided will auto-generate screenshot)
+         * @param {string} [config.category] - Project category (optional, default: 'web')
+         * @param {boolean} [config.featured] - Whether project is featured (optional, default: false)
+         * @param {Date|string} [config.date] - Project date (optional)
+         * @param {string[]} [config.tags] - Additional tags (optional)
+         */
+        class Project {
+            constructor(config) {
+                // Validation
+                if (!config.title) throw new Error('Project title is required');
+                if (!config.description) throw new Error('Project description is required');
+                if (!config.link) throw new Error('Project link is required');
+
+                // Required properties
+                this.title = config.title;
+                this.description = config.description;
+                this.link = config.link;
+                this.tech = config.tech || [];
+
+                // Optional properties with defaults
+                this.icon = config.icon || 'fa-globe';
+                this.image = config.image || null;
+                this.category = config.category || 'web';
+                this.featured = config.featured || false;
+                this.date = config.date || new Date();
+                this.tags = config.tags || [];
+
+                // Generate unique ID
+                this.id = this.generateId();
+            }
+
+            /**
+             * Generate a unique ID for the project
+             * @returns {string} Unique identifier
+             */
+            generateId() {
+                const timestamp = Date.now().toString(36);
+                const random = Math.random().toString(36).substr(2, 5);
+                return `project-${timestamp}-${random}`;
+            }
+
+            /**
+             * Get the screenshot URL for the project
+             * @returns {string} Screenshot URL
+             */
+            getScreenshotUrl() {
+                if (this.image) {
+                    return this.image;
+                }
+                // Use Microlink API to generate screenshot
+                return `https://api.microlink.io/?url=${encodeURIComponent(this.link)}&screenshot=true&meta=false&embed=screenshot.url`;
+            }
+
+            /**
+             * Get formatted date string
+             * @returns {string} Formatted date
+             */
+            getFormattedDate() {
+                const date = this.date instanceof Date ? this.date : new Date(this.date);
+                return date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            /**
+             * Convert project to JSON object
+             * @returns {Object} Plain object representation
+             */
+            toJSON() {
+                return {
+                    id: this.id,
+                    title: this.title,
+                    description: this.description,
+                    tech: this.tech,
+                    link: this.link,
+                    icon: this.icon,
+                    image: this.image,
+                    category: this.category,
+                    featured: this.featured,
+                    date: this.date,
+                    tags: this.tags
+                };
+            }
+
+            /**
+             * Create a Project instance from JSON
+             * @param {Object} json - JSON object
+             * @returns {Project} Project instance
+             */
+            static fromJSON(json) {
+                return new Project(json);
+            }
         }
 
-        // Render projects into the container
-        function renderProjects() {
-            const container = document.getElementById('projectsContainer');
-            if (!container) return;
-            
-            container.innerHTML = projects.map((project, index) => {
-                const link = project.link;
-                const previewHtml = getProjectPreview(project, link);
+        /**
+         * ProjectManager Class - Manages collection of projects
+         * Handles CRUD operations and rendering
+         */
+        class ProjectManager {
+            constructor() {
+                /** @type {Project[]} */
+                this.projects = [];
+            }
+
+            /**
+             * Add a new project to the collection
+             * @param {Project|Object} project - Project instance or config object
+             * @returns {Project} The added project
+             */
+            addProject(project) {
+                const projectInstance = project instanceof Project ? project : new Project(project);
+                this.projects.push(projectInstance);
+                return projectInstance;
+            }
+
+            /**
+             * Add multiple projects at once
+             * @param {Array<Project|Object>} projects - Array of projects
+             * @returns {Project[]} Added projects
+             */
+            addProjects(projects) {
+                return projects.map(project => this.addProject(project));
+            }
+
+            /**
+             * Remove a project by ID
+             * @param {string} id - Project ID
+             * @returns {boolean} Success status
+             */
+            removeProject(id) {
+                const initialLength = this.projects.length;
+                this.projects = this.projects.filter(p => p.id !== id);
+                return this.projects.length < initialLength;
+            }
+
+            /**
+             * Update a project by ID
+             * @param {string} id - Project ID
+             * @param {Object} updates - Updated properties
+             * @returns {Project|null} Updated project or null
+             */
+            updateProject(id, updates) {
+                const index = this.projects.findIndex(p => p.id === id);
+                if (index === -1) return null;
+
+                // Create new project with merged properties
+                const currentProject = this.projects[index];
+                const mergedConfig = {
+                    ...currentProject.toJSON(),
+                    ...updates
+                };
+                delete mergedConfig.id; // Remove old ID
+
+                const updatedProject = new Project(mergedConfig);
+                updatedProject.id = id; // Preserve original ID
+                this.projects[index] = updatedProject;
+                return updatedProject;
+            }
+
+            /**
+             * Get a project by ID
+             * @param {string} id - Project ID
+             * @returns {Project|null} Project or null
+             */
+            getProject(id) {
+                return this.projects.find(p => p.id === id) || null;
+            }
+
+            /**
+             * Get all projects
+             * @returns {Project[]} All projects
+             */
+            getAllProjects() {
+                return [...this.projects];
+            }
+
+            /**
+             * Filter projects by category
+             * @param {string} category - Category to filter by
+             * @returns {Project[]} Filtered projects
+             */
+            filterByCategory(category) {
+                return this.projects.filter(p => p.category === category);
+            }
+
+            /**
+             * Get featured projects
+             * @returns {Project[]} Featured projects
+             */
+            getFeaturedProjects() {
+                return this.projects.filter(p => p.featured);
+            }
+
+            /**
+             * Search projects
+             * @param {string} query - Search query
+             * @returns {Project[]} Matching projects
+             */
+            searchProjects(query) {
+                const searchTerm = query.toLowerCase();
+                return this.projects.filter(project => {
+                    const searchableText = [
+                        project.title,
+                        project.description,
+                        ...project.tech,
+                        ...project.tags
+                    ].join(' ').toLowerCase();
+                    return searchableText.includes(searchTerm);
+                });
+            }
+
+            /**
+             * Sort projects by date
+             * @param {boolean} ascending - Sort order (default: false = newest first)
+             * @returns {Project[]} Sorted projects
+             */
+            sortByDate(ascending = false) {
+                return [...this.projects].sort((a, b) => {
+                    const dateA = new Date(a.date);
+                    const dateB = new Date(b.date);
+                    return ascending ? dateA - dateB : dateB - dateA;
+                });
+            }
+
+            /**
+             * Get statistics about projects
+             * @returns {Object} Statistics
+             */
+            getStatistics() {
+                const stats = {
+                    total: this.projects.length,
+                    featured: this.getFeaturedProjects().length,
+                    categories: {},
+                    technologies: {}
+                };
+
+                this.projects.forEach(project => {
+                    // Count categories
+                    stats.categories[project.category] = (stats.categories[project.category] || 0) + 1;
+                    
+                    // Count technologies
+                    project.tech.forEach(tech => {
+                        stats.technologies[tech] = (stats.technologies[tech] || 0) + 1;
+                    });
+                });
+
+                return stats;
+            }
+
+            /**
+             * Render all projects to the container
+             * @param {string} containerId - Container element ID
+             * @param {Object} options - Render options
+             * @param {boolean} options.showDate - Show project date
+             * @param {boolean} options.showCategory - Show project category
+             * @param {Function} options.filter - Filter function
+             * @param {Function} options.sort - Sort function
+             */
+            renderProjects(containerId, options = {}) {
+                const container = document.getElementById(containerId);
+                if (!container) {
+                    console.error(`Container with ID "${containerId}" not found`);
+                    return;
+                }
+
+                // Apply filters and sorting
+                let projects = [...this.projects];
                 
-                // Dynamic translation keys for bilingual support
-                const titleKey = `project${index + 1}Title`;
-                const descKey = `project${index + 1}Desc`;
+                if (options.filter && typeof options.filter === 'function') {
+                    projects = projects.filter(options.filter);
+                }
                 
+                if (options.sort && typeof options.sort === 'function') {
+                    projects.sort(options.sort);
+                }
+
+                if (projects.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 50px;">
+                            <i class="fas fa-folder-open" style="font-size: 3rem; color: var(--text-muted);"></i>
+                            <p style="margin-top: 20px; color: var(--text-secondary);">No projects found</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = projects.map(project => this.renderProjectCard(project, options)).join('');
+            }
+
+            /**
+             * Render a single project card
+             * @param {Project} project - Project instance
+             * @param {Object} options - Render options
+             * @returns {string} HTML string
+             */
+            renderProjectCard(project, options = {}) {
+                const screenshotUrl = project.getScreenshotUrl();
+                const showDate = options.showDate || false;
+                const showCategory = options.showCategory || false;
+                const showFeatured = options.showFeatured || false;
+
                 return `
-                    <div class="project-card">
+                    <div class="project-card" data-project-id="${project.id}">
                         <div class="project-preview">
-                            ${previewHtml}
+                            <img src="${screenshotUrl}" 
+                                 alt="${project.title} preview" 
+                                 loading="lazy"
+                                 onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'project-preview-placeholder\\'><i class=\\'fas ${project.icon}\\'></div>'">
                         </div>
                         <div class="project-content">
-                            <h3 data-key="${titleKey}">${project.title}</h3>
-                            <p data-key="${descKey}">${project.description}</p>
+                            <h3>
+                                ${project.title}
+                                ${project.featured ? '<span class="featured-badge"><i class="fas fa-star"></i> Featured</span>' : ''}
+                            </h3>
+                            ${showDate ? `<p class="project-date"><i class="fas fa-calendar"></i> ${project.getFormattedDate()}</p>` : ''}
+                            ${showCategory ? `<p class="project-category"><i class="fas fa-folder"></i> ${project.category}</p>` : ''}
+                            <p>${project.description}</p>
                             <div class="project-tech">
                                 ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                             </div>
+                            ${project.tags.length > 0 ? `
+                                <div class="project-tags">
+                                    ${project.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+                                </div>
+                            ` : ''}
                             <div class="project-links">
-                                <a href="${link}" class="project-link" target="_blank" rel="noopener noreferrer">
-                                    <i class="fas fa-external-link-alt"></i> 
-                                    <span data-key="viewProject">View Project</span>
+                                <a href="${project.link}" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i> ${options.viewProjectText || 'View Project'}
                                 </a>
-                                <a href="${link}" class="project-link" target="_blank" rel="noopener noreferrer" style="margin-left: 10px;">
-                                    <i class="fas fa-arrow-up-right-from-square"></i>
-                                </a>
+                                ${options.showDetails ? `
+                                    <button class="project-link" onclick="openProjectDetails('${project.id}')">
+                                        <i class="fas fa-info-circle"></i> Details
+                                    </button>
+                                ` : ''}
                             </div>
                         </div>
                     </div>
                 `;
-            }).join('');
-        }
-
-        // Extend translation texts to include dynamic project data and new phrases
-        function extendTranslations() {
-            if (typeof texts === 'undefined') {
-                window.texts = { en: {}, ar: {} };
             }
-            if (!texts.en) texts.en = {};
-            if (!texts.ar) texts.ar = {};
-
-            // Add static translations
-            texts.en.viewProject = "View Project";
-            texts.ar.viewProject = "عرض المشروع";
-            texts.en.backHome = "Back to Home";
-            texts.ar.backHome = "العودة للرئيسية";
-            texts.en.projectsTitle = "My Projects";
-            texts.ar.projectsTitle = "مشاريعي";
-
-            // Add each project's bilingual title and description
-            const arabicTitles = [
-                "هيلمي للسفر", "ذا هايف الجديدة", "محمد عطا الله", "صنايع دلتا",
-                "الجزيرة سيبيا", "تسنيم بييد", "أشرقت جمال", "ياسمينة",
-                "حسام الكاراشي", "سلمى ثيتا", "حنين تو"
-            ];
-            const arabicDescriptions = [
-                "منصة سفر وسياحة عصرية بتصميم أنيق تعرض الوجهات والخدمات بتجربة مستخدم غامرة.",
-                "موقع مساحة عمل تعاونية أو مجتمع ديناميكي يتميز بجماليات حديثة وتنقل سلس لإنتاجية الفريق.",
-                "موقع بورتفوليو احترافي لمحمد عطا الله يبرز الأعمال الإبداعية والمهارات والإنجازات بتصميم نظيف.",
-                "وجود إلكتروني أنيق لسناء دلتا، ربما علامة تجارية أو فنانة أو خدمة، بواجهة بسيطة وجذابة.",
-                "منصة مستوحاة من الأخبار أو غنية بالوسائط بتصميم بني داكن، تقدم تجربة سرد بصري فريدة.",
-                "تطبيق ويب مبهج لتسنيم، ربما مخبز أو متجر حلويات أو بورتفوليو إبداعي بجمالية ساحرة.",
-                "موقع شخصي أو تجاري لأشرقت جمال يعرض خدمات أو مشاريع أو هوية تجارية بمظهر مصقول.",
-                "منصة ويب أنيقة وأنثوية لياسمينة تركز على الأناقة أو محتوى نمط الحياة أو الخدمات المهنية.",
-                "بورتفوليو قوي أو موقع أعمال لحسام الكاراشي يركز على الخبرة والاحترافية وحضور بصري قوي.",
-                "موقع إبداعي وعصري لسلمى، ربما مصممة أو مطورة أو فنانة، مع تركيز على العلامة التجارية المستوحاة من ثيتا.",
-                "موقع بتصميم مزدوج أو الإصدار الثاني لحنين يقدم مزيجًا من العلامة التجارية الشخصية أو المدونة أو عرض الخدمات."
-            ];
-
-            projects.forEach((project, index) => {
-                const titleKey = `project${index + 1}Title`;
-                const descKey = `project${index + 1}Desc`;
-                
-                if (!texts.en[titleKey]) texts.en[titleKey] = project.title;
-                if (!texts.en[descKey]) texts.en[descKey] = project.description;
-                
-                if (!texts.ar[titleKey] && arabicTitles[index]) texts.ar[titleKey] = arabicTitles[index];
-                if (!texts.ar[descKey] && arabicDescriptions[index]) texts.ar[descKey] = arabicDescriptions[index];
-            });
         }
 
-        // Initialize everything after DOM is ready
+        /**
+         * ProjectsPage Class - Main page controller
+         * Initializes and manages the projects page
+         */
+        class ProjectsPage {
+            constructor() {
+                this.projectManager = new ProjectManager();
+                this.containerId = 'projectsContainer';
+                this.initializeProjects();
+            }
+
+            /**
+             * Initialize projects with sample data
+             * THIS IS WHERE YOU ADD NEW PROJECTS!
+             */
+            initializeProjects() {
+                // ============================================
+                // ADD YOUR PROJECTS HERE
+                // ============================================
+                // Each project needs:
+                // - title: Project name (required)
+                // - description: Short description (required)
+                // - tech: Array of technologies (required)
+                // - link: Project URL (required)
+                // - icon: Font Awesome icon (optional, default: 'fa-globe')
+                // - image: Custom image URL (optional)
+                // - category: Project category (optional, default: 'web')
+                // - featured: Boolean for featured projects (optional, default: false)
+                // - date: Project date (optional)
+                // - tags: Array of tags (optional)
+                // ============================================
+
+                const projectConfigs = [
+                    
+                    {
+                        title: "Helmy Travel",
+                        description: "A modern travel and tourism platform built with a sleek design, showcasing destinations and services with an immersive user experience.",
+                        tech: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+                        link: "https://helmy-travel.vercel.app",
+                        icon: "fa-plane-departure",
+                        category: "web",
+                        featured: true,
+                        date: "2026-01-15",
+                        tags: ["travel", "tourism", "react"]
+                    },
+                    {
+                        title: "Mohamed Atalla Portfolio",
+                        description: "A professional portfolio website for Mohamed Atalla, highlighting creative work, skills, and achievements with a clean layout.",
+                        tech: ["HTML5", "CSS3", "JavaScript", "Portfolio"],
+                        link: "https://mohamed-atalla.vercel.app",
+                        icon: "fa-user-tie",
+                        category: "portfolio",
+                        featured: false,
+                        date: "2026-03-10",
+                        tags: ["portfolio", "personal"]
+                    },
+                    {
+                        title: "Sanae Delta",
+                        description: "An elegant web presence for Sanae Delta, featuring a minimalist and engaging interface.",
+                        tech: ["Next.js", "Tailwind", "Animation", "UI/UX"],
+                        link: "https://sanae-delta.vercel.app",
+                        icon: "fa-star",
+                        category: "web",
+                        featured: false,
+                        date: "2026-04-05",
+                        tags: ["design", "minimal"]
+                    },
+                    {
+                        title: "Al Jazeera Sepia",
+                        description: "A news-inspired or media-rich platform with a sepia-themed design, offering a unique visual storytelling experience.",
+                        tech: ["React", "CSS", "Media", "Design"],
+                        link: "https://al-jazeera-sepia.vercel.app",
+                        icon: "fa-newspaper",
+                        category: "media",
+                        featured: false,
+                        date: "2026-05-12",
+                        tags: ["news", "media"]
+                    },
+                    {
+                        title: "Tasneem Pied",
+                        description: "A delightful web application for Tasneem, potentially a bakery, patisserie, or creative portfolio with a charming aesthetic.",
+                        tech: ["JavaScript", "HTML", "CSS", "Vercel"],
+                        link: "https://tasneem-pied.vercel.app",
+                        icon: "fa-cake-candles",
+                        category: "web",
+                        featured: true,
+                        date: "2025-06-18",
+                        tags: ["bakery", "creative"]
+                    },
+                    {
+                        title: "Ashraket Gamal",
+                        description: "A personal or business website for Ashraket Gamal, showcasing services, projects, or a brand identity with a polished look.",
+                        tech: ["React", "Tailwind", "Vercel", "Responsive"],
+                        link: "https://ashraket-gamal.vercel.app",
+                        icon: "fa-sun",
+                        category: "business",
+                        featured: false,
+                        date: "2025-07-22",
+                        tags: ["business", "brand"]
+                    },
+                    {
+                        title: "Malak Anime Art",
+                        description: "An anime art portfolio showcasing original monochrome pencil drawings, character designs, emotional portraits, and fantasy artwork.",
+                        tech: ["HTML", "CSS", "JavaScript", "Vercel"],
+                        link: "https://malak-roan.vercel.app/",
+                        icon: "fa-palette",
+                        category: "web",
+                        featured: false,
+                        date: "2026-08-27",
+                        tags: ["anime", "art", "drawing", "gallery"]
+                    },
+                    {
+                        title: "Hossam El Karashy",
+                        description: "A robust portfolio or business site for Hossam El Karashy, emphasizing expertise, professionalism, and a strong visual presence.",
+                        tech: ["React", "HTML5", "CSS3", "Portfolio"],
+                        link: "https://hossam-el-karashy.vercel.app",
+                        icon: "fa-briefcase",
+                        category: "portfolio",
+                        featured: false,
+                        date: "2025-09-14",
+                        tags: ["portfolio", "professional"]
+                    },
+                    {
+                        title: "Salma Theta",
+                        description: "A creative and modern website for Salma, possibly a designer, developer, or artist, with a focus on theta-inspired branding.",
+                        tech: ["JavaScript", "Tailwind", "Animation", "Design"],
+                        link: "https://salma-theta.vercel.app",
+                        icon: "fa-paint-brush",
+                        category: "creative",
+                        featured: false,
+                        date: "2025-10-08",
+                        tags: ["creative", "artist"]
+                    },
+                    {
+                        title: "Haneen Two",
+                        description: "A dual-concept or second-iteration website for Haneen, offering a blend of personal branding, blog, or service showcase.",
+                        tech: ["React", "CSS", "Vercel", "Interactive"],
+                        link: "https://haneen-two.vercel.app",
+                        icon: "fa-heart",
+                        category: "web",
+                        featured: false,
+                        date: "2025-11-20",
+                        tags: ["personal", "blog"]
+                    },
+                    {
+                        title: "Heend Made",
+                        description: "A handmade e-commerce website for showcasing and selling bags, crochet, dresses, knitwear, and accessories, featuring an interactive shopping cart, checkout system, WhatsApp ordering, multiple payment methods, and an admin dashboard.",
+                        tech: ["HTML", "CSS", "JavaScript", "Vercel", "E-commerce"],
+                        link: "https://heend-made-bzvf.vercel.app/",
+                        icon: "fa-bag-shopping",
+                        category: "web",
+                        featured: true,
+                        date: "2025",
+                        tags: ["handmade", "e-commerce", "shopping", "whatsapp"]
+                    },
+                    {
+                        title: "Heed Made CRM",
+                        description: "A customer management dashboard for Heed Made with sales tracking, customer records, search and filtering, sales statistics, and Excel export functionality.",
+                        tech: ["HTML", "CSS", "JavaScript", "Vercel", "CRM"],
+                        link: "https://heend-made-brqh.vercel.app/",
+                        icon: "fa-users",
+                        category: "web",
+                        featured: false,
+                        date: "2025-11-20",
+                        tags: ["crm", "customers", "sales", "dashboard"]
+                    },
+                    {
+                        title: "AbN BALED",
+                        description: "A photography portfolio website for showcasing captured moments and visual work with a dedicated management dashboard.",
+                        tech: ["HTML", "CSS", "JavaScript", "Vercel"],
+                        link: "https://ab-n-baled.vercel.app/",
+                        icon: "fa-camera",
+                        category: "web",
+                        featured: false,
+                        date: "2026-08-27",
+                        tags: ["photography", "portfolio", "gallery"]
+                    },
+                    {
+                        title: "El Timsah Barber",
+                        description: "A modern barber business website featuring haircut services, pricing, gallery, customer reviews, and appointment booking.",
+                        tech: ["HTML", "CSS", "JavaScript", "Vercel"],
+                        link: "https://el-timsah.vercel.app/",
+                        icon: "fa-scissors",
+                        category: "web",
+                        featured: false,
+                        date: "2026-08-27",
+                        tags: ["barber", "business", "booking", "gallery"]
+                    },
+                    {
+                        title: "Sanae Arrouch Portfolio",
+                        description: "A professional portfolio website for a Marketing and Organizational Management specialist, showcasing education, skills, services, portfolio projects, testimonials, and contact information.",
+                        tech: ["HTML", "CSS", "JavaScript", "Vercel"],
+                        link: "https://sanae-delta.vercel.app/",
+                        icon: "fa-bullhorn",
+                        category: "web",
+                        featured: false,
+                        date: "2026",
+                        tags: ["portfolio", "marketing", "branding", "management"]
+                    },
+                    // ============================================
+                    // ADD NEW PROJECTS HERE - Copy the template below
+                    // ============================================
+                    // {
+                    //     title: "Your Project Name",
+                    //     description: "Your project description here",
+                    //     tech: ["Technology1", "Technology2", "Technology3"],
+                    //     link: "https://your-project-link.com",
+                    //     icon: "fa-your-icon", // Font Awesome icon class
+                    //     category: "your-category", // web, portfolio, business, creative, media
+                    //     featured: false, // true for featured projects
+                    //     date: "2024-12-01", // YYYY-MM-DD format
+                    //     tags: ["tag1", "tag2"] // Additional tags
+                    // }
+                    {
+                        title: "The Hive",
+                        description: "A dynamic collaborative workspace or community hub website featuring modern aesthetics and smooth navigation for team productivity.",
+                        tech: ["React", "CSS3", "JavaScript", "Responsive"],
+                        link: "https://new-the-hive.vercel.app",
+                        icon: "fa-hive",
+                        category: "web",
+                        featured: false,
+                        date: "2024-02-20",
+                        tags: ["community", "collaboration"]
+                    },
+                ];
+
+                // Add all projects to the manager
+                this.projectManager.addProjects(projectConfigs);
+            }
+
+            /**
+             * Render the projects page
+             */
+            render() {
+                this.projectManager.renderProjects(this.containerId, {
+                    showDate: false,
+                    showCategory: false,
+                    showFeatured: true,
+                    viewProjectText: 'View Project',
+                    // Sort projects by date (newest first)
+                    sort: (a, b) => new Date(b.date) - new Date(a.date)
+                });
+
+                // Log statistics
+                console.log('Projects Statistics:', this.projectManager.getStatistics());
+            }
+
+            /**
+             * Get all projects
+             * @returns {Project[]} All projects
+             */
+            getProjects() {
+                return this.projectManager.getAllProjects();
+            }
+
+            /**
+             * Add a new project dynamically
+             * @param {Object} projectConfig - Project configuration
+             */
+            addNewProject(projectConfig) {
+                const project = this.projectManager.addProject(projectConfig);
+                this.render(); // Re-render the page
+                return project;
+            }
+        }
+
+        // ============================================
+        // PAGE INITIALIZATION
+        // ============================================
+
+        // Wait for DOM to be ready
         document.addEventListener('DOMContentLoaded', () => {
-            extendTranslations();
-            renderProjects();
+            // Initialize the projects page
+            const projectsPage = new ProjectsPage();
             
-            // If language.js exposes a function to update UI, we could call it here.
-            // But we rely on the existing language toggle to refresh the page or re-render.
-            if (typeof updateContent === 'function') {
-                // Optional: force a language update if the function exists
-                setTimeout(() => {
-                    const currentLang = localStorage.getItem('language') || 'en';
-                    if (typeof updateContent === 'function') updateContent(currentLang);
-                }, 100);
+            // Render the projects
+            projectsPage.render();
+
+            // Expose the projects page to global scope for debugging
+            window.projectsPage = projectsPage;
+
+            // ============================================
+            // HOW TO ADD A NEW PROJECT
+            // ============================================
+            // Option 1: Add to the projectConfigs array above (recommended)
+            // Option 2: Use the console:
+            // window.projectsPage.addNewProject({
+            //     title: "My New Project",
+            //     description: "Description of my new project",
+            //     tech: ["HTML", "CSS", "JS"],
+            //     link: "https://my-project.com",
+            //     icon: "fa-code",
+            //     category: "web",
+            //     featured: false,
+            //     date: "2024-12-25",
+            //     tags: ["new", "project"]
+            // });
+            // ============================================
+
+            // Initialize navigation
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const navbar = document.getElementById('navbar');
+
+            function toggleMenu() {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            }
+
+            function closeMenu() {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', toggleMenu);
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            window.addEventListener('scroll', () => {
+                if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            // Initialize back to top button
+            const fab = document.getElementById("fab");
+            if (fab) {
+                window.addEventListener("scroll", () => fab.classList.toggle('show', window.scrollY > 300));
+                fab.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+            }
+
+            // Add language translations
+            if (typeof texts !== 'undefined') {
+                if (!texts.en) texts.en = {};
+                if (!texts.ar) texts.ar = {};
+                texts.en.backHome = "Back to Home";
+                texts.ar.backHome = "العودة للرئيسية";
+                texts.en.viewProject = "View Project";
+                texts.ar.viewProject = "عرض المشروع";
             }
         });
     </script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
